@@ -1,7 +1,12 @@
-export function Footer() {
+import React from 'react';
+
+const Footer = () => {
   return (
-    <footer>
-      <p>Your Footer Content</p>
-    </footer>
+    <header>
+      <h1>Your Header Title</h1>
+      {/* Add navigation or other header content here */}
+    </header>
   );
-}
+};
+
+export default Footer;
