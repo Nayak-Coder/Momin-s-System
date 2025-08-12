@@ -20,79 +20,11 @@ const Header = () => {
       </button>
     </div>
     <el-popover-group class="hidden lg:flex lg:gap-x-16">
-      <div class="relative">
-        <button popovertarget="desktop-menu-product" class="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-          Product
-          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5 flex-none text-gray-400">
-            <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
-          </svg>
-        </button>
-
-        <el-popover id="desktop-menu-product" anchor="bottom" popover class="w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg outline-1 outline-gray-900/5 transition transition-discrete [--anchor-gap:--spacing(3)] backdrop:bg-transparent open:block data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
-          <div class="p-4">
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900">
-                  Analytics
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600">Get a better understanding of your traffic</p>
-              </div>
-            </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">   
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900">
-                  Engagement
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600">Speak directly to your customers</p>
-              </div>
-            </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900">
-                  Security
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600">Your customers’ data will be safe and secure</p>
-              </div>
-            </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900">
-                  Integrations
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600">Connect with third-party tools</p>
-              </div>
-            </div>
-            <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
-              <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900">
-                  Automations
-                  <span class="absolute inset-0"></span>
-                </a>
-                <p class="mt-1 text-gray-600">Build strategic funnels that will convert</p>
-              </div>
-            </div>
-          </div>
-          <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-            <a href="#" class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100">
-              <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5 flex-none text-gray-400">
-                <path d="M2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm6.39-2.908a.75.75 0 0 1 .766.027l3.5 2.25a.75.75 0 0 1 0 1.262l-3.5 2.25A.75.75 0 0 1 8 12.25v-4.5a.75.75 0 0 1 .39-.658Z" clip-rule="evenodd" fill-rule="evenodd" />
-              </svg>
-              Watch demo
-            </a>
-            <a href="#" class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100">
-              Contact sales
-            </a>
-          </div>
-        </el-popover>
-      </div>
-
-      <a href="#" class="text-sm/6 font-semibold text-gray-900">Features</a>
-      <a href="#" class="text-sm/6 font-semibold text-gray-900">Marketplace</a>
-      <a href="#" class="text-sm/6 font-semibold text-gray-900">Company</a>
+      <a href="/" class="text-sm/6 font-semibold text-gray-900">Home</a>
+      <a href="/products" class="text-sm/6 font-semibold text-gray-900">Product</a>
+      <a href="/services" class="text-sm/6 font-semibold text-gray-900">Features</a>
+      <a href="/contact" class="text-sm/6 font-semibold text-gray-900">Marketplace</a>
+      <a href="/aboutus" class="text-sm/6 font-semibold text-gray-900">Company</a>
     </el-popover-group>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <a href="#" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
