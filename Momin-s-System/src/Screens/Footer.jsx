@@ -105,7 +105,7 @@ const Footer = () => {
         <div className="mt-8 text-center text-xs text-gray-500">
           <p>Prices and specifications may change without notice. TechLaptop Store is not responsible for typographical errors.</p>
         </div>
-      </div>
+      </div>  
     </footer>
   );
 };
