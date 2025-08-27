@@ -49,6 +49,42 @@ const Products = () => {
                 price: 99.97,
                 image: 'https://via.placeholder.com/300x200',
               },
+               {
+                id: 7,
+                name: 'Smart Watch',
+                price: 99.98,
+                image: 'https://via.placeholder.com/300x200',
+              },
+              {
+                id: 8,
+                name: 'Smart Watch',
+                price: 99.97,
+                image: 'https://via.placeholder.com/300x200',
+              },
+              {
+                id: 9,
+                name: 'Simple Watch',
+                price: 99.97,
+                image: 'https://via.placeholder.com/300x200',
+              },
+               {
+                id: 10,
+                name: 'Smart Watch',
+                price: 99.98,
+                image: 'https://via.placeholder.com/300x200',
+              },
+              {
+                id: 11,
+                name: 'Smart Watch',
+                price: 99.97,
+                image: 'https://via.placeholder.com/300x200',
+              },
+              {
+                id: 12,
+                name: 'Simple Watch',
+                price: 99.97,
+                image: 'https://via.placeholder.com/300x200',
+              },
             ]);
           }, 1000)
         );
@@ -85,7 +121,8 @@ const Products = () => {
               <div className="p-4">
                 <h2 className="text-xl font-semibold text-gray-800">{product.name}</h2>
                 <p className="text-gray-600 mt-2">${product.price.toFixed(2)}</p>
-                <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                onClick={() => alert(`Added ${product.name} to cart!`) }>
                   Add to Cart
                 </button>
               </div>
