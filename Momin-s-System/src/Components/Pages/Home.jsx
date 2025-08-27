@@ -39,7 +39,8 @@ const HomePage = () => {
       <section className="bg-gray-100 py-16 text-center px-4">
         <h2 className="text-4xl font-bold mb-4">Your Next Laptop Awaits</h2>
         <p className="text-lg mb-6">High performance, sleek design, unbeatable prices.</p>
-        <button className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+        <button className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
+        onClick={() => window.location.href='/products'}>
           Shop Now
         </button>
       </section>

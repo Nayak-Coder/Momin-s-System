@@ -31,6 +31,24 @@ const Products = () => {
                 price: 99.99,
                 image: 'https://via.placeholder.com/300x200',
               },
+              {
+                id: 4,
+                name: 'Smart Watch',
+                price: 99.98,
+                image: 'https://via.placeholder.com/300x200',
+              },
+              {
+                id: 5,
+                name: 'Smart Watch',
+                price: 99.97,
+                image: 'https://via.placeholder.com/300x200',
+              },
+              {
+                id: 6,
+                name: 'Simple Watch',
+                price: 99.97,
+                image: 'https://via.placeholder.com/300x200',
+              },
             ]);
           }, 1000)
         );
