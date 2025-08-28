@@ -27,7 +27,7 @@ const Header = () => {
       <a href="/aboutus" class="text-sm/6 font-semibold text-gray-900">Company</a>
     </el-popover-group>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a href="#" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+      <a href="/login" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
     </div>
   </nav>
   <el-dialog>
@@ -35,7 +35,7 @@ const Header = () => {
       <div tabindex="0" class="fixed inset-0 focus:outline-none">
         <el-dialog-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div class="flex items-center justify-between">
-            <a href="#" class="-m-1.5 p-1.5">
+            <a href="/" class="-m-1.5 p-1.5">
               <span class="sr-only">Your Company</span>
               <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="" class="h-8 w-auto" />
             </a>
