@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaLaptop, FaMobileAlt, FaHeadphones } from 'react-icons/fa';
 
 const team = [
   {
@@ -9,12 +10,13 @@ const team = [
   {
     name: "Babu Nayak",
     role: "Lead Engineer",
-    img: "https://randomuser.me/api/portraits/women/44.jpg"
+    img: "https://randomuser.me/api/portraits/"
+    
   },
   {
     name: "Muhammad Ahmed",
     role: "Customer Success",
-    img: "https://randomuser.me/api/portraits/men/65.jpg"
+    img : "https://randomuser.me/api/portraits/"
   }
 ];
 
