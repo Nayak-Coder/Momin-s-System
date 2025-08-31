@@ -9,6 +9,7 @@ import Services from './Components/Pages/Services.jsx'
 import Products from './Components/Pages/Products.jsx'
 import Contact from './Components/Pages/Contact.jsx'
 import Loginpage from './Components/Pages/login.jsx'
+import Cart from './Components/Pages/Cart.jsx'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Loginpage />
+      },
+      {
+        path: "cart",
+        element: <Cart />
       }
     ]
   }
