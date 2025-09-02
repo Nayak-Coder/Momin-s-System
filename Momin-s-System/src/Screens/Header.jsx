@@ -23,7 +23,7 @@ const Header = () => {
       <a href="/" class="text-sm/6 font-semibold text-gray-900">Home</a>
       <a href="/products" class="text-sm/6 font-semibold text-gray-900">Product</a>
       <a href="/services" class="text-sm/6 font-semibold text-gray-900">Features</a>
-      <a href="/contact" class="text-sm/6 font-semibold text-gray-900">Marketplace</a>
+      <a href="/marketplace" class="text-sm/6 font-semibold text-gray-900">Marketplace</a>
       <a href="/aboutus" class="text-sm/6 font-semibold text-gray-900">Company</a>
     </el-popover-group>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
