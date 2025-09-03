@@ -16,7 +16,7 @@ const team = [
   {
     name: "Muhammad Ahmed",
     role: "Customer Success",
-    img : "https://randomuser.me/api/portraits/"
+    img : {}
   }
 ];
 
