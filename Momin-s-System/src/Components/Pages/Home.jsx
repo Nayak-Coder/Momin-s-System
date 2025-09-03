@@ -154,3 +154,30 @@ const HomePage = () => {
       </section>
 
      
+        <footer className="bg-gray-900 text-white py-10 text-center">
+          <div className="mb-4">
+            <p className="text-sm">&copy; 2025 Laptop Store. All rights reserved.</p>
+          </div>
+          <div className="flex justify-center space-x-6 mt-4">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+            <svg className="w-5 h-5 inline-block" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22 12a10 10 0 10-11.5 9.87v-7H8v-2.87h2.5v-2.2c0-2.48 1.48-3.87 3.76-3.87 1.09 0 2.23.2 2.23.2v2.44h-1.26c-1.24 0-1.62.77-1.62 1.56v1.87H17l-.4 2.87h-2.26v7A10 10 0 0022 12z"/>
+            </svg>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+            <svg className="w-5 h-5 inline-block" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0022.43.36a9.14 9.14 0 01-2.83 1.08A4.48 4.48 0 0016.11 0c-2.5 0-4.52 2.28-4.52 5.09 0 .4.04.79.13 1.17A12.94 12.94 0 013 1.64 5.09 5.09 0 003.64 8a4.48 4.48 0 01-2.05-.56v.06c0 2.45 1.6 4.49 3.73 4.96a4.52 4.52 0 01-2.04.08 4.51 4.51 0 004.22 3.21A9.03 9.03 0 012 19.54 12.77 12.77 0 008.29 21c7.54 0 11.67-6.72 11.67-12.54 0-.19-.01-.38-.02-.57A8.51 8.51 0 0023 3z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+            <svg className="w-5 h-5 inline-block" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.5a1.5 1.5 0 11-3 .001 1.5 1.5 0 013-.001z"/>
+            </svg>
+          </a>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default HomePage;
