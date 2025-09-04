@@ -11,6 +11,7 @@ import Contact from './Components/Pages/Contact.jsx'
 import Loginpage from './Components/Pages/login.jsx'
 import Cart from './Components/Pages/Cart.jsx'
 import MarketPlace from './Components/Pages/MarketPlace.jsx'
+import Tech from './Components/Pages/Tech.jsx'
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "marketplace",
         element: <MarketPlace />
+      },
+      {
+        path: "tech",
+        element: <Tech />
       }
     ]
   }
