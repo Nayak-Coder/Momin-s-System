@@ -1,57 +1,78 @@
-import React from 'react';
+import React from "react";
 
-// Mock cart items (replace with real data or props/context)
 const cartItems = [
-    { id: 1, name: 'Product A', price: 120, quantity: 4 },
-    { id: 2, name: 'Product B', price: 80, quantity: 1 },
+    {
+        id: 1,
+        name: "Dell XPS 15",
+        price: 1599,
+        quantity: 1,
+        image: "https://via.placeholder.com/120x80?text=Dell+XPS+15",
+    },
+    {
+        id: 2,
+        name: "MacBook Pro 14\"",
+        price: 1999,
+        quantity: 2,
+        image: "https://via.placeholder.com/120x80?text=MacBook+Pro+14",
+    },
 ];
 
 const Cart = () => {
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
     return (
-        <div style={{ maxWidth: 600, margin: '40px auto', padding: 24, background: '#fff', borderRadius: 8, boxShadow: '0 2px 8px #eee' }}>
-            <h2>Your Cart</h2>
-            {cartItems.length === 0 ? (
-                <p>Your cart is empty.</p>
-            ) : (
-                <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 24 }}>
-                    <thead>
-                        <tr>
-                            <th style={{ textAlign: 'left', padding: 8 }}>Product</th>
-                            <th style={{ textAlign: 'center', padding: 8 }}>Quantity</th>
-                            <th style={{ textAlign: 'right', padding: 8 }}>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {cartItems.map(item => (
-                            <tr key={item.id}>
-                                <td style={{ padding: 8 }}>{item.name}</td>
-                                <td style={{ textAlign: 'center', padding: 8 }}>{item.quantity}</td>
-                                <td style={{ textAlign: 'right', padding: 8 }}>${item.price * item.quantity}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            )}
-            <div style={{ textAlign: 'right', fontWeight: 'bold', fontSize: 18 }}>
-                Total: ${total}
-            </div>
-            <button
-                style={{
-                    marginTop: 24,
-                    padding: '10px 24px',
-                    background: '#007bff',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: 4,
-                    cursor: 'pointer',
-                    fontSize: 16,
-                }}
-                disabled={cartItems.length === 0}
-            >
-                Proceed to Checkout
-            </button>
+        <div className="font-sans text-gray-800 bg-white min-h-screen">
+            <header className="bg-gray-900 text-white py-5 px-6 flex justify-between items-center">
+                <h1 className="text-2xl font-bold tracking-wide">Your Cart</h1>
+                <nav className="space-x-6 text-sm">
+                    <a href="/" className="hover:text-gray-400">Home</a>
+                    <a href="/products" className="hover:text-gray-400">Products</a>
+                    <a href="/tech" className="hover:text-gray-400">Tech</a>
+                    <a href="/contact" className="hover:text-gray-400">Contact</a>
+                    <a href="/cart" className="hover:text-gray-400">Cart</a>
+                </nav>
+            </header>
+
+            <section className="py-20 px-4 max-w-4xl mx-auto">
+                <h2 className="text-3xl font-bold mb-8 text-center">Shopping Cart</h2>
+                {cartItems.length === 0 ? (
+                    <p className="text-center text-gray-500">Your cart is empty.</p>
+                ) : (
+                    <div className="bg-gray-50 rounded-xl shadow-md p-6">
+                        <table className="w-full text-left">
+                            <thead>
+                                <tr className="border-b">
+                                    <th className="py-2">Product</th>
+                                    <th className="py-2">Name</th>
+                                    <th className="py-2">Price</th>
+                                    <th className="py-2">Quantity</th>
+                                    <th className="py-2">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {cartItems.map((item) => (
+                                    <tr key={item.id} className="border-b hover:bg-gray-100">
+                                        <td className="py-3">
+                                            <img src={item.image} alt={item.name} className="w-20 h-14 object-cover rounded" />
+                                        </td>
+                                        <td className="py-3 font-semibold">{item.name}</td>
+                                        <td className="py-3">${item.price.toLocaleString()}</td>
+                                        <td className="py-3">{item.quantity}</td>
+                                        <td className="py-3 font-bold">${(item.price * item.quantity).toLocaleString()}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                        <div className="flex justify-end mt-6 text-xl font-bold">
+                            Total: ${total.toLocaleString()}
+                        </div>
+                        <div className="flex justify-end mt-6">
+                            <button className="bg-blue-600 text-white px-8 py-3 rounded hover:bg-blue-700 transition text-lg font-medium" disabled={cartItems.length === 0}>
+                                Proceed to Checkout
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </section>
         </div>
     );
 };
