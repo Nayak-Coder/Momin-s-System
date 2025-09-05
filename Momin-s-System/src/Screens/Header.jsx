@@ -9,7 +9,14 @@ const Header = () => {
           <img src={logo} alt="TechLaptop Store Logo" className="h-12 w-12 rounded-full shadow-md border-2 border-white" />
           <span className="text-2xl font-extrabold text-white tracking-wide drop-shadow-lg">TechLaptop Store</span>
         </a>
-        
+        <nav className="hidden md:flex gap-8 text-lg font-semibold">
+          <a href="/" className="text-white hover:text-blue-200 transition">Home</a>
+          <a href="/products" className="text-white hover:text-blue-200 transition">Products</a>
+          <a href="/tech" className="text-white hover:text-blue-200 transition">Tech</a>
+          <a href="/marketplace" className="text-white hover:text-blue-200 transition">Marketplace</a>
+          <a href="/aboutus" className="text-white hover:text-blue-200 transition">About Us</a>
+          <a href="/contact" className="text-white hover:text-blue-200 transition">Contact</a>
+        </nav>
         <div className="hidden md:flex">
           <a href="/login" className="bg-white text-blue-700 px-6 py-2 rounded-full font-bold shadow hover:bg-blue-100 transition">Log in</a>
         </div>
