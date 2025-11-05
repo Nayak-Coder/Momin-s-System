@@ -36,6 +36,7 @@ const HomePage = () => {
           <a href="/tech" className="hover:text-gray-400">Tech Specs</a>
           <a href="/contact" className="hover:text-gray-400">Contact</a>
           <a href="/cart" className="hover:text-gray-400">Cart</a>
+          <a href="/bundleoffers" className="hover:text-gray-400">Deals</a>
         </nav>
       </header>
 
