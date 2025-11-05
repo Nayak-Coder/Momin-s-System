@@ -12,6 +12,8 @@ import Loginpage from './Components/Pages/login.jsx'
 import Cart from './Components/Pages/Cart.jsx'
 import MarketPlace from './Components/Pages/MarketPlace.jsx'
 import Tech from './Components/Pages/Tech.jsx'
+import BundleOffers from './Components/Pages/BundleOffers.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -53,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "tech",
         element: <Tech />
+      },
+      {
+        path: "bundleoffers",
+        element: <BundleOffers />
       }
     ]
   }
