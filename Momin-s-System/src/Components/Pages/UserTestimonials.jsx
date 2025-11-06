@@ -21,7 +21,46 @@ const testimonials = [
     purchasedItem: "Student Starter Pack",
     verifiedPurchase: true
   },
- 
+  {
+    id: 3,
+    name: "Emily Rodriguez",
+    role: "Business Analyst",
+    image: "https://via.placeholder.com/150x150?text=Emily",
+    rating: 4,
+    review: "The professional work bundle made setting up my home office a breeze. The docking station and monitor combo is perfect for productivity.",
+    purchasedItem: "Professional Work Bundle",
+    verifiedPurchase: true
+  },
+  {
+    id: 4,
+    name: "Alex Thompson",
+    role: "Content Creator",
+    image: "https://via.placeholder.com/150x150?text=Alex",
+    rating: 5,
+    review: "Customer service was exceptional! They helped me choose the perfect laptop for video editing, and the performance has been outstanding.",
+    purchasedItem: "Creative Pro Bundle",
+    verifiedPurchase: true
+  },
+  {
+    id: 5,
+    name: "David Kim",
+    role: "Gaming Enthusiast",
+    image: "https://via.placeholder.com/150x150?text=David",
+    rating: 5,
+    review: "The gaming bundle is insane! The ROG laptop handles all my games perfectly, and the included peripherals are top-notch.",
+    purchasedItem: "Gaming Excellence Pack",
+    verifiedPurchase: true
+  },
+  {
+    id: 6,
+    name: "Lisa Martinez",
+    role: "Remote Professional",
+    image: "https://via.placeholder.com/150x150?text=Lisa",
+    rating: 4,
+    review: "Working remotely has been so much better with this setup. The laptop is reliable, and the accessories make it feel like a proper office.",
+    purchasedItem: "Professional Work Bundle",
+    verifiedPurchase: true
+  }
 ];
 
 const UserTestimonials = () => {
