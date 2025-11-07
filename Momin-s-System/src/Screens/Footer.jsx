@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
-          <div className="mb-6 md:mb-0">
+          <div className="mb-6 md:mb-0 ">
             <a href="/" className="flex items-center">
               <span className="self-center text-2xl font-semibold whitespace-nowrap text-blue-500">
                 TechLaptop Store
@@ -15,6 +15,7 @@ const Footer = () => {
             <p className="mt-4 max-w-xs text-gray-400">
               Your trusted partner for high-quality laptops and computing accessories. We offer the latest technology with competitive prices.
             </p>
+           
           </div>
           
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -65,7 +66,7 @@ const Footer = () => {
                   <a href="#" className="hover:underline">Returns</a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">FAQ</a>
+                  <a href="/UserTestimonials" className="hover:underline">User Feedbacks</a>
                 </li>
               </ul>
             </div>
@@ -77,9 +78,6 @@ const Footer = () => {
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-400 sm:text-center">
             © 2025 <a href="/" className="hover:underline">TechLaptop Store™</a>. All Rights Reserved.
-          </span>
-          <span className="text-sm text-gray-400 sm:text-center">
-            © 2025 <a href="/UserTestimonials" className="hover:underline">UserTestimonials</a>. All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a href="#" className="text-gray-400 hover:text-white">
