@@ -78,6 +78,9 @@ const Footer = () => {
           <span className="text-sm text-gray-400 sm:text-center">
             © 2025 <a href="/" className="hover:underline">TechLaptop Store™</a>. All Rights Reserved.
           </span>
+          <span className="text-sm text-gray-400 sm:text-center">
+            © 2025 <a href="/UserTestimonials" className="hover:underline">UserTestimonials</a>. All Rights Reserved.
+          </span>
           <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a href="#" className="text-gray-400 hover:text-white">
               <FaFacebook className="w-5 h-5" />
