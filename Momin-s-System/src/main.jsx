@@ -13,6 +13,7 @@ import Cart from './Components/Pages/Cart.jsx'
 import MarketPlace from './Components/Pages/MarketPlace.jsx'
 import Tech from './Components/Pages/Tech.jsx'
 import BundleOffers from './Components/Pages/BundleOffers.jsx'
+import UserTestimonials from './Components/Pages/UserTestimonials.jsx'
 
 
 const router = createBrowserRouter([
@@ -59,7 +60,12 @@ const router = createBrowserRouter([
       {
         path: "bundleoffers",
         element: <BundleOffers />
+      },
+      {
+        path: "UserTestimonials",
+        element: <UserTestimonials />
       }
+      
     ]
   }
 ])
