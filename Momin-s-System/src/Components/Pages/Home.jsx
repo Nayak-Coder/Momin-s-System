@@ -12,6 +12,7 @@ const HomePage = () => {
   const [laptops, setLaptops] = useState(initialLaptops);
   const [bundles, setBundles] = useState(initialBundles);
   const [testimonials, setTestimonials] = useState(initialTestimonials);
+  const [selectedTab, setSelectedTab] = useState('New Arrivals');
 
   useEffect(() => {
     // Simulate fetching data
@@ -20,24 +21,53 @@ const HomePage = () => {
       const fetchedLaptops = await fakeFetch([
         {
           id: 1,
-          name: "Dell XPS 15",
-          price: 1599,
-          image: "https://via.placeholder.com/400x300?text=Dell+XPS+15",
-          badge: "Best Seller",
+          name: "Lenovo LOQ 15IRX9",
+          price: 250000,
+          oldPrice: null,
+          image: "https://via.placeholder.com/400x300?text=Lenovo+LOQ+15IRX9",
+          badge: "New Arrival",
+          category: 'new',
+          categoryLabel: '13th Generation Laptops',
         },
         {
           id: 2,
-          name: "MacBook Pro 14\"",
-          price: 1999,
-          image: "https://via.placeholder.com/400x300?text=MacBook+Pro+14",
-          badge: "Premium",
+          name: "Lenovo LOQ 15IRX10",
+          price: 373000,
+          oldPrice: 395000,
+          image: "https://via.placeholder.com/400x300?text=Lenovo+LOQ+15IRX10",
+          badge: "Gaming",
+          category: 'gaming',
+          categoryLabel: '144Hz Laptops in Pakistan',
         },
         {
           id: 3,
-          name: "HP Spectre x360",
-          price: 1299,
-          image: "https://via.placeholder.com/400x300?text=HP+Spectre",
+          name: "Lenovo LOQ 15IRX10 (i7)",
+          price: 360000,
+          oldPrice: null,
+          image: "https://via.placeholder.com/400x300?text=Lenovo+LOQ+15IRX10+%28i7%29",
           badge: "Editor\'s Pick",
+          category: 'gaming',
+          categoryLabel: '144Hz Laptops in Pakistan',
+        },
+        {
+          id: 4,
+          name: "Lenovo LOQ 15IRX9 (i7)",
+          price: 270000,
+          oldPrice: null,
+          image: "https://via.placeholder.com/400x300?text=Lenovo+LOQ+15IRX9+i7",
+          badge: "New Arrival",
+          category: 'new',
+          categoryLabel: '13th Generation Laptops',
+        },
+        {
+          id: 5,
+          name: "MacBook Pro 14\"",
+          price: 199900,
+          oldPrice: 219900,
+          image: "https://via.placeholder.com/400x300?text=MacBook+Pro+14",
+          badge: "Premium",
+          category: 'sale',
+          categoryLabel: 'On Sale',
         },
       ]);
 
