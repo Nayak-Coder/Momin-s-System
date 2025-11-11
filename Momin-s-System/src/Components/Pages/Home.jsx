@@ -103,24 +103,62 @@ const HomePage = () => {
         </div>
       ) : (
         <>
-          {/* Featured Products */}
+          {/* Featured Products with Tabs */}
           <section className="py-12 px-4 max-w-7xl mx-auto">
-            <h3 className="text-3xl md:text-4xl font-bold text-center mb-8">Featured Laptops</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-              {laptops.map((laptop) => (
-                <article key={laptop.id} className="bg-white border rounded-xl shadow-sm hover:shadow-md transition overflow-hidden">
-                  <img src={laptop.image} alt={laptop.name} className="w-full h-48 object-cover" />
-                  <div className="p-5 text-center">
-                    <span className="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">{laptop.badge}</span>
-                    <h4 className="text-xl font-semibold mb-1">{laptop.name}</h4>
-                    <p className="text-lg text-gray-600 mb-4">${laptop.price.toLocaleString()}</p>
-                    <div className="flex justify-center gap-3">
-                      <a href={`/products/${laptop.id}`} className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">View</a>
-                      <button className="bg-gray-100 px-4 py-2 rounded hover:bg-gray-200">Add to Cart</button>
-                    </div>
+            <h3 className="text-3xl md:text-4xl font-bold text-center mb-6">Featured Laptops</h3>
+
+            {/* Tabs */}
+            <div className="flex items-center justify-center mb-8">
+              <div className="w-full md:w-2/3">
+                <div className="flex gap-6 justify-start md:justify-center border-b pb-2">
+                  {['New Arrivals', 'On Sale', 'Gaming Laptops'].map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => setSelectedTab(tab)}
+                      className={`pb-3 text-sm md:text-base font-semibold ${selectedTab === tab ? 'text-blue-600' : 'text-gray-600 hover:text-gray-800'}`}
+                    >
+                      {tab}
+                    </button>
+                  ))}
+                </div>
+                {/* underline indicator */}
+                <div className="relative h-1">
+                  <div className="absolute left-0 right-0">
+                    <div className="mx-auto w-0 md:w-full" />
                   </div>
-                </article>
-              ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+              {laptops
+                .filter((l) => {
+                  if (!selectedTab || selectedTab === 'New Arrivals') return l.category === 'new' || selectedTab === 'New Arrivals';
+                  if (selectedTab === 'On Sale') return l.category === 'sale';
+                  if (selectedTab === 'Gaming Laptops') return l.category === 'gaming';
+                  return true;
+                })
+                .map((laptop) => (
+                  <article key={laptop.id} className="bg-white border rounded-xl shadow-sm hover:shadow-md transition overflow-hidden">
+                    <div className="p-4">
+                      <div className="text-xs text-gray-500 uppercase mb-2">{laptop.categoryLabel}</div>
+                      <h4 className="text-lg md:text-xl font-semibold mb-2">{laptop.name}</h4>
+                    </div>
+                    <img src={laptop.image} alt={laptop.name} className="w-full h-48 object-contain bg-white p-6" />
+                    <div className="p-5 text-center">
+                      <div className="flex items-center justify-center gap-2 mb-3">
+                        <span className="text-2xl font-bold text-blue-600">Rs {laptop.price.toLocaleString()}</span>
+                        {laptop.oldPrice && (
+                          <span className="text-sm text-gray-400 line-through">Rs {laptop.oldPrice.toLocaleString()}</span>
+                        )}
+                      </div>
+                      <div className="flex justify-center gap-3">
+                        <a href={`/products/${laptop.id}`} className="text-blue-600 font-semibold">View</a>
+                        <button className="bg-gray-100 px-4 py-2 rounded hover:bg-gray-200">Add to Cart</button>
+                      </div>
+                    </div>
+                  </article>
+                ))}
             </div>
           </section>
 
