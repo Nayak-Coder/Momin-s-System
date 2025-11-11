@@ -163,7 +163,7 @@ const HomePage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {laptops
                 .filter((l) => {
-                  if (!selectedTab || selectedTab === 'New Arrivals') return l.category === 'new' || selectedTab === 'New Arrivals';
+                  if (selectedTab === 'New Arrivals') return l.category === 'new';
                   if (selectedTab === 'On Sale') return l.category === 'sale';
                   if (selectedTab === 'Gaming Laptops') return l.category === 'gaming';
                   return true;
