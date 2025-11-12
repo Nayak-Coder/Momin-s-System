@@ -13,6 +13,7 @@ const HomePage = () => {
   const [bundles, setBundles] = useState(initialBundles);
   const [testimonials, setTestimonials] = useState(initialTestimonials);
   const [selectedTab, setSelectedTab] = useState('New Arrivals');
+  const tabs = ['New Arrivals', 'On Sale', 'Gaming Laptops'];
 
   useEffect(() => {
     // Simulate fetching data
@@ -140,21 +141,33 @@ const HomePage = () => {
             {/* Tabs */}
             <div className="flex items-center justify-center mb-8">
               <div className="w-full md:w-2/3">
-                <div className="flex gap-6 justify-start md:justify-center border-b pb-2">
-                  {['New Arrivals', 'On Sale', 'Gaming Laptops'].map((tab) => (
-                    <button
-                      key={tab}
-                      onClick={() => setSelectedTab(tab)}
-                      className={`pb-3 text-sm md:text-base font-semibold ${selectedTab === tab ? 'text-blue-600' : 'text-gray-600 hover:text-gray-800'}`}
-                    >
-                      {tab}
-                    </button>
-                  ))}
-                </div>
-                {/* underline indicator */}
-                <div className="relative h-1">
-                  <div className="absolute left-0 right-0">
-                    <div className="mx-auto w-0 md:w-full" />
+                <div className="relative">
+                  <div className="flex gap-6 justify-start md:justify-center border-b pb-2">
+                    {tabs.map((tab, idx) => {
+                      const count = laptops.filter((l) => (tab === 'New Arrivals' ? l.category === 'new' : tab === 'On Sale' ? l.category === 'sale' : l.category === 'gaming')).length;
+                      return (
+                        <button
+                          key={tab}
+                          onClick={() => setSelectedTab(tab)}
+                          className={`pb-3 text-sm md:text-base font-semibold flex items-center gap-2 ${selectedTab === tab ? 'text-blue-600' : 'text-gray-600 hover:text-gray-800'}`}
+                        >
+                          <span>{tab}</span>
+                          <span className="text-xs text-gray-400">({count})</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* animated underline */}
+                  <div className="absolute left-0 right-0 top-full">
+                    <div
+                      className="mx-auto bg-blue-600 h-0.5 rounded transition-all duration-300"
+                      style={{
+                        width: `${100 / tabs.length}%`,
+                        transform: `translateX(${tabs.indexOf(selectedTab) * 100}%)`,
+                        transformOrigin: 'left',
+                      }}
+                    />
                   </div>
                 </div>
               </div>
