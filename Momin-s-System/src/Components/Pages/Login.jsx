@@ -8,7 +8,7 @@ const Loginpage = () => {
     const handlelogin = (e) => {
         e.preventDefault();
         if (!email || !password) {
-            setError("Please Fill Email And Password");
+            setError("Please Fill Email And Password Correctly");
             return;
         }
         setError("");
