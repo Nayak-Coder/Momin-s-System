@@ -12,7 +12,7 @@ const Loginpage = () => {
             return;
         }
         setError("");
-        console.log("Login button clicked");
+        console.log("Login button clicked with", { email, password });
         window.location.href = '/';
     };
 
