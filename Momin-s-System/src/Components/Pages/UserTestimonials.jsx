@@ -54,7 +54,7 @@ const testimonials = [
   {
     id: 6,
     name: "Lisa Martinez",
-    role: "Remote Professional",
+    role: "Remote Professional Freelancer",
     image: "https://via.placeholder.com/150x150?text=Lisa",
     rating: 4,
     review: "Working remotely has been so much better with this setup. The laptop is reliable, and the accessories make it feel like a proper office.",
