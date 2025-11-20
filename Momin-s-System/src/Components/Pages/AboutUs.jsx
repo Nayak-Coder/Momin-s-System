@@ -15,7 +15,7 @@ const team = [
   },
   {
     name: "Muhammad Ahmed",
-    role: "Customer Success",
+    role: "Sales Manager",
     img : {}
   }
 ];
