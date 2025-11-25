@@ -71,15 +71,15 @@ const BundleOffers = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-900 to-blue-600 text-white py-16">
+      <div className="bg-gradient-to-r from-green-900 to-amber-200 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Special Bundle Offers
           </h1>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-amber-100 mb-8">
             Save big with our carefully curated laptop bundles
           </p>
-          <div className="inline-block bg-yellow-400 text-blue-900 px-6 py-3 rounded-full font-bold text-lg animate-bounce">
+          <div className="inline-block bg-amber-200 text-green-900 px-6 py-3 rounded-full font-bold text-lg animate-bounce">
             Limited Time Deals!
           </div>
         </div>
@@ -99,7 +99,7 @@ const BundleOffers = () => {
                 <div className="absolute top-4 right-4 bg-red-500 text-white px-4 py-1 rounded-full font-semibold">
                   Save {bundle.savings}
                 </div>
-                <div className="absolute top-4 left-4 bg-blue-600 text-white px-4 py-1 rounded-full font-semibold">
+                <div className="absolute top-4 left-4 bg-green-700 text-white px-4 py-1 rounded-full font-semibold">
                   {bundle.badge}
                 </div>
               </div>
@@ -124,12 +124,12 @@ const BundleOffers = () => {
                       ${bundle.originalPrice}
                     </span>
                   </div>
-                  <div className="text-2xl font-bold text-blue-600">
+                  <div className="text-2xl font-bold text-green-700">
                     ${bundle.discountedPrice}
                   </div>
                 </div>
                 
-                <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
+                <button className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors duration-300">
                   Add Bundle to Cart
                 </button>
               </div>
