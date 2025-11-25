@@ -123,15 +123,15 @@ const HomePage = () => {
         <h2 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Performance. Portability. Power.</h2>
         <p className="text-lg md:text-xl mb-6 drop-shadow-md">Find laptops and bundles designed for developers, creators, students and gamers.</p>
         <div className="flex items-center justify-center gap-4">
-          <a href="/products" className="bg-blue-600 px-6 py-3 rounded text-lg font-medium hover:bg-blue-700 transition">Shop Laptops</a>
-          <a href="/bundleoffers" className="bg-white text-blue-700 px-6 py-3 rounded text-lg font-medium hover:bg-gray-100 transition">View Bundles</a>
+          <a href="/products" className="bg-green-700 px-6 py-3 rounded text-lg font-medium hover:bg-green-800 transition">Shop Laptops</a>
+          <a href="/bundleoffers" className="bg-white text-green-700 px-6 py-3 rounded text-lg font-medium hover:bg-amber-100 transition">View Bundles</a>
         </div>
       </section>
 
       {/* Loader */}
       {loading ? (
         <div className="py-24 flex justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-600"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-green-700"></div>
         </div>
       ) : (
         <>
@@ -150,7 +150,7 @@ const HomePage = () => {
                         <button
                           key={tab}
                           onClick={() => setSelectedTab(tab)}
-                          className={`pb-3 text-sm md:text-base font-semibold flex items-center gap-2 ${selectedTab === tab ? 'text-blue-600' : 'text-gray-600 hover:text-gray-800'}`}
+                          className={`pb-3 text-sm md:text-base font-semibold flex items-center gap-2 ${selectedTab === tab ? 'text-green-700' : 'text-gray-600 hover:text-gray-800'}`}
                         >
                           <span>{tab}</span>
                           <span className="text-xs text-gray-400">({count})</span>
@@ -162,7 +162,7 @@ const HomePage = () => {
                   {/* animated underline */}
                   <div className="absolute left-0 right-0 top-full">
                     <div
-                      className="mx-auto bg-blue-600 h-0.5 rounded transition-all duration-300"
+                      className="mx-auto bg-green-700 h-0.5 rounded transition-all duration-300"
                       style={{
                         width: `${100 / tabs.length}%`,
                         transform: `translateX(${tabs.indexOf(selectedTab) * 100}%)`,
@@ -191,13 +191,13 @@ const HomePage = () => {
                     <img src={laptop.image} alt={laptop.name} className="w-full h-48 object-contain bg-white p-6" />
                     <div className="p-5 text-center">
                       <div className="flex items-center justify-center gap-2 mb-3">
-                        <span className="text-2xl font-bold text-blue-600">Rs {laptop.price.toLocaleString()}</span>
+                        <span className="text-2xl font-bold text-green-700">Rs {laptop.price.toLocaleString()}</span>
                         {laptop.oldPrice && (
                           <span className="text-sm text-gray-400 line-through">Rs {laptop.oldPrice.toLocaleString()}</span>
                         )}
                       </div>
                       <div className="flex justify-center gap-3">
-                        <a href={`/products/${laptop.id}`} className="text-blue-600 font-semibold">View</a>
+                        <a href={`/products/${laptop.id}`} className="text-green-700 font-semibold">View</a>
                         <button className="bg-gray-100 px-4 py-2 rounded hover:bg-gray-200">Add to Cart</button>
                       </div>
                     </div>
@@ -211,7 +211,7 @@ const HomePage = () => {
             <div className="max-w-7xl mx-auto">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-3xl font-bold">Bundle Offers</h3>
-                <a href="/bundleoffers" className="text-blue-600 hover:underline">See all bundles</a>
+                <a href="/bundleoffers" className="text-green-700 hover:underline">See all bundles</a>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {bundles.map((b) => (
@@ -219,7 +219,7 @@ const HomePage = () => {
                     <img src={b.image} alt={b.name} className="w-1/3 object-cover hidden sm:block" />
                     <div className="p-5 flex-1">
                       <h4 className="text-xl font-semibold mb-2">{b.name}</h4>
-                      <p className="text-gray-600 mb-4">Starting at <span className="font-bold text-blue-600">${b.discountedPrice.toLocaleString()}</span></p>
+                      <p className="text-gray-600 mb-4">Starting at <span className="font-bold text-green-700">${b.discountedPrice.toLocaleString()}</span></p>
                       <div className="flex gap-3">
                         <a href={`/bundleoffers/${b.id}`} className="bg-blue-600 text-white px-4 py-2 rounded">View Bundle</a>
                         <button className="bg-gray-100 px-4 py-2 rounded">Add Bundle</button>
@@ -238,7 +238,7 @@ const HomePage = () => {
                 <h3 className="text-3xl md:text-4xl font-bold">What Our Customers Say</h3>
                 <p className="text-gray-600 mt-2">Real reviews from our satisfied customers</p>
               </div>
-              <a href="/user-testimonials" className="text-blue-600 hover:underline font-semibold">Read all →</a>
+              <a href="/user-testimonials" className="text-green-700 hover:underline font-semibold">Read all →</a>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {testimonials.map((t) => (
@@ -268,7 +268,7 @@ const HomePage = () => {
 
                   {/* Product Tag */}
                   <div className="mt-4">
-                    <span className="inline-block bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">
+                    <span className="inline-block bg-amber-50 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
                       {t.product}
                     </span>
                   </div>

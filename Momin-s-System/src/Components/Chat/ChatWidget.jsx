@@ -66,7 +66,7 @@ const ChatWidget = () => {
       <div className="fixed right-6 bottom-6 z-50">
         <button
           onClick={() => setOpen((o) => !o)}
-          className="bg-blue-600 text-white rounded-full w-14 h-14 shadow-lg flex items-center justify-center hover:scale-105 transition-transform"
+          className="bg-green-700 text-white rounded-full w-14 h-14 shadow-lg flex items-center justify-center hover:scale-105 transition-transform"
           aria-label={open ? 'Close chat' : 'Open chat'}
         >
           {open ? (
@@ -102,7 +102,7 @@ const ChatWidget = () => {
           <div ref={messagesRef} className="h-72 overflow-y-auto p-4 space-y-4 bg-gradient-to-t from-white to-gray-50">
             {messages.map((m) => (
               <div key={m.id} className={`flex ${m.from === 'assistant' ? 'justify-start' : 'justify-end'}`}>
-                <div className={`${m.from === 'assistant' ? 'bg-gray-100 text-gray-800' : 'bg-blue-600 text-white'} px-4 py-2 rounded-lg max-w-[80%]`}>
+                <div className={`${m.from === 'assistant' ? 'bg-gray-100 text-gray-800' : 'bg-green-700 text-white'} px-4 py-2 rounded-lg max-w-[80%]`}>
                   <div className="text-sm leading-relaxed">{m.text}</div>
                   <div className="text-[10px] text-gray-400 mt-1 text-right">{new Date(m.time).toLocaleTimeString()}</div>
                 </div>
@@ -122,7 +122,7 @@ const ChatWidget = () => {
               placeholder="Ask me about laptops, bundles or support..."
               className="flex-1 px-3 py-2 rounded-lg border focus:outline-none text-sm"
             />
-            <button disabled={loading} type="submit" className="bg-blue-600 text-white px-3 py-2 rounded-lg disabled:opacity-60">Send</button>
+            <button disabled={loading} type="submit" className="bg-green-700 text-white px-3 py-2 rounded-lg disabled:opacity-60">Send</button>
           </form>
         </div>
       </div>
