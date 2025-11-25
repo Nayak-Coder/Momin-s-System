@@ -66,7 +66,7 @@ const Cart = () => {
                             Total: ${total.toLocaleString()}
                         </div>
                         <div className="flex justify-end mt-6">
-                            <button className="bg-blue-600 text-white px-8 py-3 rounded hover:bg-blue-700 transition text-lg font-medium" disabled={cartItems.length === 0}>
+                            <button className="bg-green-700 text-white px-8 py-3 rounded hover:bg-green-800 transition text-lg font-medium" disabled={cartItems.length === 0}>
                                 Proceed to Checkout
                             </button>
                         </div>

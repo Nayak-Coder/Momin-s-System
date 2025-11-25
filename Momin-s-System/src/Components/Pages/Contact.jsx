@@ -35,7 +35,7 @@ const Contact = () => {
           <input
             type="text"
             name="name"
-            className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             value={formData.name}
             onChange={handleChange}
             required
@@ -47,7 +47,7 @@ const Contact = () => {
           <input
             type="email"
             name="email"
-            className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             value={formData.email}
             onChange={handleChange}
             required
@@ -59,7 +59,7 @@ const Contact = () => {
           <textarea
             name="message"
             rows="5"
-            className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             value={formData.message}
             onChange={handleChange}
             required
@@ -68,7 +68,7 @@ const Contact = () => {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+          className="w-full bg-green-700 text-white py-2 px-4 rounded hover:bg-green-800 transition"
         >
           Send Message
         </button>

@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0 ">
             <a href="/" className="flex items-center">
-              <span className="self-center text-2xl font-semibold whitespace-nowrap text-blue-500">
+              <span className="self-center text-2xl font-semibold whitespace-nowrap text-green-500">
                 TechLaptop Store
               </span>
             </a>
