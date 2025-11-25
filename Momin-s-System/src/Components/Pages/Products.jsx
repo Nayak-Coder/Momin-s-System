@@ -121,7 +121,7 @@ const Products = () => {
               <div className="p-4">
                 <h2 className="text-xl font-semibold text-gray-800">{product.name}</h2>
                 <p className="text-gray-600 mt-2">${product.price.toFixed(2)}</p>
-                <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                <button className="mt-4 px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800 transition"
                 onClick={() => alert(`Added ${product.name} to cart!`) }>
                   Add to Cart
                 </button>
