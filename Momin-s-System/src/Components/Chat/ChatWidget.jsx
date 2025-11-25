@@ -36,6 +36,14 @@ const ChatWidget = () => {
     return "Thanks — I'll pass that along. For product-specific help please give the model name or ask to show bundles.";
   }
 
+  /*
+   * How to integrate a real AI backend:
+   * - Replace sendMessageToServer() with an API call to your server endpoint which calls the model provider (OpenAI / Azure / other).
+   * - Example (server-side): POST /api/chat { prompt }
+   * - On the server: call OpenAI using the server-side key (never expose keys in the browser)
+   * - Return the assistant message text in the response
+   */
+
   const handleSend = async (e) => {
     e?.preventDefault();
     if (!input.trim()) return;
