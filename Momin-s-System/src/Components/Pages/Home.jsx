@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ChatWidget from '../Chat/ChatWidget';
 
 const fakeFetch = (data, delay = 600) =>
   new Promise((res) => setTimeout(() => res(data), delay));
@@ -277,6 +278,9 @@ const HomePage = () => {
           </section>
         </>
       )}
+
+      {/* Chat widget (floating) */}
+      <ChatWidget />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-10 text-center mt-8">
