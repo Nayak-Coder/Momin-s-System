@@ -81,12 +81,12 @@ const UserTestimonials = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-900 to-blue-600 text-white py-16">
+      <div className="bg-gradient-to-r from-green-900 to-amber-200 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             What Our Customers Say
           </h1>
-          <p className="text-xl text-blue-100">
+          <p className="text-xl text-amber-100">
             Read authentic reviews from our valued customers
           </p>
         </div>
@@ -97,15 +97,15 @@ const UserTestimonials = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">4.8/5</div>
+              <div className="text-4xl font-bold text-green-700 mb-2">4.8/5</div>
               <div className="text-gray-600">Average Rating</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">1000+</div>
+              <div className="text-4xl font-bold text-green-700 mb-2">1000+</div>
               <div className="text-gray-600">Verified Reviews</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">98%</div>
+              <div className="text-4xl font-bold text-green-700 mb-2">98%</div>
               <div className="text-gray-600">Satisfied Customers</div>
             </div>
           </div>
@@ -166,10 +166,10 @@ const UserTestimonials = () => {
             Browse our collection of laptops and bundles to find your perfect match
           </p>
           <div className="flex justify-center gap-4">
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+            <button className="bg-green-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-800 transition">
               Shop Now
             </button>
-            <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+            <button className="bg-white text-green-900 px-8 py-3 rounded-lg font-semibold hover:bg-amber-100 transition">
               View Bundles
             </button>
           </div>
