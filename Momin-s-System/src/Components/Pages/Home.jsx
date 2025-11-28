@@ -106,7 +106,7 @@ const HomePage = () => {
   return (
     <div className="font-sans text-gray-800 bg-white min-h-screen">
       {/* Header */}
-      <header className="bg-gray-900 text-white py-5 px-6 flex flex-col md:flex-row items-center justify-between">
+      <header className="bg-gradient-to-r from-green-900 via-green-700 to-amber-200 text-white py-5 px-6 flex flex-col md:flex-row items-center justify-between">
         <h1 className="text-2xl font-bold tracking-wide mb-3 md:mb-0">TechLaptop Store</h1>
         <nav className="space-x-4 text-sm">
           <a href="/" className="hover:text-gray-400">Home</a>
@@ -221,7 +221,7 @@ const HomePage = () => {
                       <h4 className="text-xl font-semibold mb-2">{b.name}</h4>
                       <p className="text-gray-600 mb-4">Starting at <span className="font-bold text-green-700">${b.discountedPrice.toLocaleString()}</span></p>
                       <div className="flex gap-3">
-                        <a href={`/bundleoffers/${b.id}`} className="bg-blue-600 text-white px-4 py-2 rounded">View Bundle</a>
+                        <a href={`/bundleoffers/${b.id}`} className="bg-green-700 text-white px-4 py-2 rounded">View Bundle</a>
                         <button className="bg-gray-100 px-4 py-2 rounded">Add Bundle</button>
                       </div>
                     </div>
@@ -283,7 +283,7 @@ const HomePage = () => {
       <ChatWidget />
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-10 text-center mt-8">
+      <footer className="bg-gradient-to-r from-green-900 via-green-700 to-amber-200 text-white py-10 text-center mt-8">
         <div className="mb-4">
           <p className="text-sm">&copy; {new Date().getFullYear()} TechLaptop Store. All rights reserved.</p>
         </div>

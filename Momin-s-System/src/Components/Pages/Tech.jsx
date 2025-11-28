@@ -20,7 +20,7 @@ const upcomingProjects = [
 const Tech = () => {
 	return (
 		<div className="font-sans text-gray-800 bg-white min-h-screen">
-			<header className="bg-gray-900 text-white py-5 px-6 flex justify-between items-center">
+			<header className="bg-gradient-to-r from-green-900 via-green-700 to-amber-200 text-white py-5 px-6 flex justify-between items-center">
 				<h1 className="text-2xl font-bold tracking-wide">Tech Innovations</h1>
 				<nav className="space-x-6 text-sm">
 					<a href="/" className="hover:text-gray-400">Home</a>
@@ -31,9 +31,9 @@ const Tech = () => {
 				</nav>
 			</header>
 
-			<section className="bg-blue-50 py-20 px-6 text-center">
-				<h2 className="text-4xl font-bold mb-4 text-blue-900">Upcoming Projects</h2>
-				<p className="text-lg mb-8 text-blue-700">Discover our future innovations in AI and Smart Drone technology.</p>
+			<section className="bg-amber-50 py-20 px-6 text-center">
+				<h2 className="text-4xl font-bold mb-4 text-green-700">Upcoming Projects</h2>
+				<p className="text-lg mb-8 text-amber-700">Discover our future innovations in AI and Smart Drone technology.</p>
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
 					{upcomingProjects.map((project, idx) => (
 						<div key={idx} className="border rounded-xl shadow-md hover:shadow-xl transition bg-white">
