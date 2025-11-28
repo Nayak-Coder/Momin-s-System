@@ -21,7 +21,7 @@ const Cart = () => {
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
     return (
         <div className="font-sans text-gray-800 bg-white min-h-screen">
-            <header className="bg-gray-900 text-white py-5 px-6 flex justify-between items-center">
+            <header className="bg-gradient-to-r from-green-900 via-green-700 to-amber-200 text-white py-5 px-6 flex justify-between items-center">
                 <h1 className="text-2xl font-bold tracking-wide">Your Cart</h1>
                 <nav className="space-x-6 text-sm">
                     <a href="/" className="hover:text-gray-400">Home</a>

@@ -84,7 +84,7 @@ const ChatWidget = () => {
       {/* Drawer / chat panel */}
       <div className={`fixed right-6 bottom-24 z-50 transition-transform ${open ? 'translate-y-0' : 'translate-y-6 opacity-0 pointer-events-none'}`} style={{ width: 360 }}>
         <div className="bg-white rounded-2xl shadow-xl border overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-700 to-blue-500 text-white px-4 py-3 flex items-center justify-between">
+          <div className="bg-gradient-to-r from-green-700 to-amber-200 text-white px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -93,7 +93,7 @@ const ChatWidget = () => {
               </div>
               <div>
                 <div className="font-semibold">TechLaptop Assistant</div>
-                <div className="text-xs text-blue-200">Ask about products, bundles, or support</div>
+                <div className="text-xs text-amber-200">Ask about products, bundles, or support</div>
               </div>
             </div>
             <div className="text-xs text-white/80">Online</div>
