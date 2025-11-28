@@ -7,7 +7,7 @@ const Services = () => {
       id: 1,
       title: 'Web Development',
       description: 'Building responsive and high-performance websites.',
-      icon: <FaCode className="text-4xl text-blue-600" />,
+      icon: <FaCode className="text-4xl text-green-700" />,
     },
     {
       id: 2,
