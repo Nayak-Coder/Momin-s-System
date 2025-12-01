@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaShoppingCart } from 'react-icons/fa';
+import { useCart } from '../Context/CartContext';
 import logo from '../assets/logo.jpg';
 
 const Header = () => {
@@ -17,8 +19,10 @@ const Header = () => {
           <a href="/aboutus" className="text-white hover:text-amber-200 transition">About Us</a>
           <a href="/contact" className="text-white hover:text-amber-200 transition">Contact</a>
         </nav>
-        <div className="hidden md:flex">
+        <div className="hidden md:flex items-center gap-4">
           <a href="/login" className="bg-white text-green-700 px-6 py-2 rounded-full font-bold shadow hover:bg-amber-100 transition">Log in</a>
+          {/* Cart icon with count */}
+          <CartStatus />
         </div>
         {/* Mobile menu button */}
         <div className="md:hidden">
@@ -31,6 +35,29 @@ const Header = () => {
       </div>
     </header>
   );
+};
+
+const CartStatus = () => {
+  try {
+    const { totalCount } = useCart();
+    return (
+      <a href="/cart" className="relative inline-flex items-center text-white/90 hover:text-white">
+        <FaShoppingCart className="text-green-50" />
+        {totalCount > 0 && (
+          <span className="absolute -right-2 -top-2 inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold leading-none text-white bg-green-600 rounded-full">
+            {totalCount}
+          </span>
+        )}
+      </a>
+    );
+  } catch (e) {
+    // If used outside provider, show fallback
+    return (
+      <a href="/cart" className="relative inline-flex items-center text-white/90 hover:text-white">
+        <FaShoppingCart className="text-green-50" />
+      </a>
+    );
+  }
 };
 
 export default Header;
