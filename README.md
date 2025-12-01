@@ -1,4 +1,4 @@
-# 📦 Momin Laptop Store
+# 📦 Momin Laptop Store Web Application in React
 
 A simple and clean laptop store web application built using **HTML, CSS,
 and JavaScript**, featuring a functional **shopping cart** system. Users
