@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ChatWidget from '../Chat/ChatWidget';
+import { useCart } from '../../Context/CartContext';
 
 const fakeFetch = (data, delay = 600) =>
   new Promise((res) => setTimeout(() => res(data), delay));
@@ -103,6 +104,8 @@ const HomePage = () => {
     fetchData();
   }, []);
 
+  const { addItem } = useCart();
+
   return (
     <div className="font-sans text-gray-800 bg-white min-h-screen">
       {/* Header */}
@@ -198,7 +201,7 @@ const HomePage = () => {
                       </div>
                       <div className="flex justify-center gap-3">
                         <a href={`/products/${laptop.id}`} className="text-green-700 font-semibold">View</a>
-                        <button className="bg-gray-100 px-4 py-2 rounded hover:bg-gray-200">Add to Cart</button>
+                        <button onClick={() => addItem({ id: laptop.id, name: laptop.name, price: laptop.price, image: laptop.image }, 1)} className="bg-gray-100 px-4 py-2 rounded hover:bg-gray-200">Add to Cart</button>
                       </div>
                     </div>
                   </article>
@@ -222,7 +225,7 @@ const HomePage = () => {
                       <p className="text-gray-600 mb-4">Starting at <span className="font-bold text-green-700">${b.discountedPrice.toLocaleString()}</span></p>
                       <div className="flex gap-3">
                         <a href={`/bundleoffers/${b.id}`} className="bg-green-700 text-white px-4 py-2 rounded">View Bundle</a>
-                        <button className="bg-gray-100 px-4 py-2 rounded">Add Bundle</button>
+                        <button onClick={() => addItem({ id: `bundle-${b.id}`, name: b.name, price: b.discountedPrice, image: b.image }, 1)} className="bg-gray-100 px-4 py-2 rounded">Add Bundle</button>
                       </div>
                     </div>
                   </div>

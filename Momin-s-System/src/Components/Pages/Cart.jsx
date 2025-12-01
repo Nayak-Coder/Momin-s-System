@@ -1,24 +1,8 @@
 import React from "react";
-
-const cartItems = [
-    {
-        id: 1,
-        name: "Dell XPS 15",
-        price: 1599,
-        quantity: 1,
-        image: "https://via.placeholder.com/120x80?text=Dell+XPS+15",
-    },
-    {
-        id: 2,
-        name: "MacBook Pro 14\"",
-        price: 1999,
-        quantity: 2,
-        image: "https://via.placeholder.com/120x80?text=MacBook+Pro+14",
-    },
-];
+import { useCart } from '../../Context/CartContext';
 
 const Cart = () => {
-    const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const { items, totalPrice, removeItem, updateQuantity, clear } = useCart();
     return (
         <div className="font-sans text-gray-800 bg-white min-h-screen">
             <header className="bg-gradient-to-r from-green-900 via-green-700 to-amber-200 text-white py-5 px-6 flex justify-between items-center">
@@ -34,7 +18,7 @@ const Cart = () => {
 
             <section className="py-20 px-4 max-w-4xl mx-auto">
                 <h2 className="text-3xl font-bold mb-8 text-center">Shopping Cart</h2>
-                {cartItems.length === 0 ? (
+                {items.length === 0 ? (
                     <p className="text-center text-gray-500">Your cart is empty.</p>
                 ) : (
                     <div className="bg-gray-50 rounded-xl shadow-md p-6">
@@ -49,24 +33,36 @@ const Cart = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {cartItems.map((item) => (
+                                {items.map((item) => (
                                     <tr key={item.id} className="border-b hover:bg-gray-100">
                                         <td className="py-3">
                                             <img src={item.image} alt={item.name} className="w-20 h-14 object-cover rounded" />
                                         </td>
                                         <td className="py-3 font-semibold">{item.name}</td>
-                                        <td className="py-3">${item.price.toLocaleString()}</td>
-                                        <td className="py-3">{item.quantity}</td>
-                                        <td className="py-3 font-bold">${(item.price * item.quantity).toLocaleString()}</td>
+                                        <td className="py-3">Rs {Number(item.price).toLocaleString()}</td>
+                                        <td className="py-3">
+                                            <div className="flex items-center gap-2">
+                                                <button onClick={() => updateQuantity(item.id, Math.max(1, (item.quantity || 1) - 1))} className="px-2 py-1 bg-gray-200 rounded">-</button>
+                                                <div className="px-3 py-1 border rounded">{item.quantity}</div>
+                                                <button onClick={() => updateQuantity(item.id, (item.quantity || 1) + 1)} className="px-2 py-1 bg-gray-200 rounded">+</button>
+                                            </div>
+                                        </td>
+                                        <td className="py-3 font-bold">Rs {(Number(item.price) * (item.quantity || 1)).toLocaleString()}</td>
+                                        <td className="py-3">
+                                            <button onClick={() => removeItem(item.id)} className="text-sm text-red-600 hover:underline">Remove</button>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
-                        <div className="flex justify-end mt-6 text-xl font-bold">
-                            Total: ${total.toLocaleString()}
+                        <div className="flex justify-between items-center mt-6">
+                            <div>
+                                <button onClick={() => clear()} className="text-sm text-red-600 hover:underline">Clear cart</button>
+                            </div>
+                            <div className="text-xl font-bold">Total: Rs {Number(totalPrice).toLocaleString()}</div>
                         </div>
                         <div className="flex justify-end mt-6">
-                            <button className="bg-green-700 text-white px-8 py-3 rounded hover:bg-green-800 transition text-lg font-medium" disabled={cartItems.length === 0}>
+                            <button className="bg-green-700 text-white px-8 py-3 rounded hover:bg-green-800 transition text-lg font-medium" disabled={items.length === 0}>
                                 Proceed to Checkout
                             </button>
                         </div>
