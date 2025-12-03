@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCart } from '../../Context/CartContext';
 
 const bundles = [
   {
@@ -68,6 +69,7 @@ const bundles = [
 ];
 
 const BundleOffers = () => {
+  const { addItem } = useCart();
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -129,7 +131,10 @@ const BundleOffers = () => {
                   </div>
                 </div>
                 
-                <button className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors duration-300">
+                <button
+                  className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors duration-300"
+                  onClick={() => addItem({ id: `bundle-${bundle.id}`, name: bundle.name, price: bundle.discountedPrice, image: bundle.image }, 1)}
+                >
                   Add Bundle to Cart
                 </button>
               </div>
