@@ -135,7 +135,7 @@ const BundleOffers = () => {
                   className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors duration-300"
                   onClick={() => addItem({ id: `bundle-${bundle.id}`, name: bundle.name, price: bundle.discountedPrice, image: bundle.image }, 1)}
                 >
-                  Add Bundle to Cart
+                  Add Bundles to Cart
                 </button>
               </div>
             </div>
