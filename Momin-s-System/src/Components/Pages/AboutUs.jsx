@@ -57,7 +57,7 @@ const AboutUs = () => {
               <span className="text-white font-bold">2024</span>
             </span>
             <h3 className="font-bold text-lg text-green-700">Online Revolution</h3>
-            <p className="text-gray-600">Launched our online platform for everyone, everywhere.</p>
+            <p className="text-gray-600">Launched our Online platform for everyone, everywhere.</p>
           </li>
         </ol>
       </section>
