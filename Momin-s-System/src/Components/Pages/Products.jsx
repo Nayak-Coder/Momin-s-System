@@ -127,7 +127,7 @@ const Products = () => {
                   className="mt-4 px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800 transition"
                   onClick={() => addItem(product, 1)}
                 >
-                  AddS to Cart
+                  Add to Cart
                 </button>
               </div>
             </div>
