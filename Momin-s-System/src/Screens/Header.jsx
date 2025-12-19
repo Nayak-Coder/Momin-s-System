@@ -14,7 +14,7 @@ const Header = () => {
         <nav className="hidden md:flex gap-8 text-lg font-semibold">
           <a href="/" className="text-white hover:text-amber-200 transition">Home</a>
           <a href="/products" className="text-white hover:text-amber-200 transition">Products</a>
-          <a href="/tech" className="text-white hover:text-amber-200 transition">Tech</a>
+          <a href="/tech" className="text-white hover:text-amber-200 transition">Techs</a>
           <a href="/marketplace" className="text-white hover:text-amber-200 transition">Marketplace</a>
           <a href="/aboutus" className="text-white hover:text-amber-200 transition">About Us</a>
           <a href="/contact" className="text-white hover:text-amber-200 transition">Contact</a>
