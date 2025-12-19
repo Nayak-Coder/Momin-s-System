@@ -12,7 +12,7 @@ const Header = () => {
           <span className="text-2xl font-extrabold text-white tracking-wide drop-shadow-lg">TechLaptop Store</span>
         </a>
         <nav className="hidden md:flex gap-8 text-lg font-semibold">
-          <a href="/" className="text-white hover:text-amber-200 transition">Homes</a>
+          <a href="/" className="text-white hover:text-amber-200 transition">Home</a>
           <a href="/products" className="text-white hover:text-amber-200 transition">Products</a>
           <a href="/tech" className="text-white hover:text-amber-200 transition">Tech</a>
           <a href="/marketplace" className="text-white hover:text-amber-200 transition">Marketplace</a>
