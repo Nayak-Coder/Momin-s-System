@@ -147,6 +147,18 @@ const Products = () => {
                 price: 24.99,
                 image: 'https://via.placeholder.com/300x200?text=Desk+Mat',
               },
+              {
+                id: 23,
+                name: 'Dual Monitor Arm Stand',
+                price: 69.99,
+                image: 'https://via.placeholder.com/300x200?text=Monitor+Arm',
+              },
+              {
+                id: 24,
+                name: 'Cable Management Kit',
+                price: 19.99,
+                image: 'https://via.placeholder.com/300x200?text=Cable+Management',
+              },
             ]);
           }, 1000)
         );
