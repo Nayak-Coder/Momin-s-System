@@ -90,8 +90,8 @@ const HomePage = () => {
       ]);
 
       const fetchedTestimonials = await fakeFetch([
-        { id: 1, name: "Bora Najab", role: "Graphic Designer", image: "https://via.placeholder.com/80x80?text=Alice", rating: 5, text: "Absolutely love my MacBook Pro. Super smooth experience!", product: "MacBook Pro" },
-        { id: 2, name: "Alay Alex", role: "Software Developer", image: "https://via.placeholder.com/80x80?text=James", rating: 5, text: "Dell XPS runs like a dream. Perfect for developers.", product: "Dell XPS" },
+        { id: 1, name: "Bora Najab", role: "Graphic Separeder", image: "https://via.placeholder.com/80x80?text=Alice", rating: 5, text: "Absolutely love my MacBook Pro. Super smooth experience!", product: "MacBook Pro" },
+        { id: 2, name: "Alay Alex", role: "Software Helper", image: "https://via.placeholder.com/80x80?text=James", rating: 5, text: "Dell XPS runs like a dream. Perfect for developers.", product: "Dell XPS" },
         { id: 3, name: "Mahreen Rind", role: "Content Initiator", image: "https://via.placeholder.com/80x80?text=Maria", rating: 4, text: "HP Spectre is lightweight and powerful. Great battery life!", product: "HP Spectre" },
       ]);
 
