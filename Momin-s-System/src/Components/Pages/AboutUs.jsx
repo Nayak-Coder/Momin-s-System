@@ -50,7 +50,7 @@ const AboutUs = () => {
               <span className="text-white font-bold">2015</span>
             </span>
             <h3 className="font-bold text-lg text-green-700">Nationwide Expansion</h3>
-            <p className="text-gray-600">Opened stores in every major city.</p>
+            <p className="text-gray-600">Opened stores in every major cities</p>
           </li>
           <li className="ml-6">
             <span className="absolute flex items-center justify-center w-8 h-8 bg-green-700 rounded-full -left-4 ring-4 ring-white">
