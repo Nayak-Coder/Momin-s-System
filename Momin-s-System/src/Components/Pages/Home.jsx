@@ -109,25 +109,35 @@ const HomePage = () => {
   return (
     <div className="font-sans text-gray-800 bg-white min-h-screen">
       {/* Header */}
-      <header className="bg-gradient-to-r from-green-900 via-green-700 to-amber-200 text-white py-5 px-6 flex flex-col md:flex-row items-center justify-between">
-        <h1 className="text-2xl font-bold tracking-wide mb-3 md:mb-0">TechLaptop Store</h1>
-        <nav className="space-x-4 text-sm">
-          <a href="/" className="hover:text-gray-400">Home</a>
-          <a href="/products" className="hover:text-gray-400">Products</a>
-          <a href="/tech" className="hover:text-gray-400">Tech</a>
-          <a href="/bundleoffers" className="hover:text-gray-400">Bundles</a>
-          <a href="/user-testimonials" className="hover:text-gray-400">Testimonials</a>
-          <a href="/contact" className="hover:text-gray-400">Contact</a>
+      <header className="bg-gradient-to-r from-green-900 via-green-700 to-amber-200 text-white py-6 px-6 flex flex-col md:flex-row items-center justify-between shadow-lg sticky top-0 z-50">
+        <div className="flex items-center gap-2 mb-3 md:mb-0">
+          <span className="text-2xl">💻</span>
+          <h1 className="text-2xl font-bold tracking-wide">TechLaptop Store</h1>
+        </div>
+        <nav className="flex flex-wrap justify-center md:justify-end gap-6 text-sm font-medium">
+          <a href="/" className="hover:text-amber-200 transition duration-200">Home</a>
+          <a href="/products" className="hover:text-amber-200 transition duration-200">Products</a>
+          <a href="/tech" className="hover:text-amber-200 transition duration-200">Tech</a>
+          <a href="/bundleoffers" className="hover:text-amber-200 transition duration-200">Bundles</a>
+          <a href="/user-testimonials" className="hover:text-amber-200 transition duration-200">Testimonials</a>
+          <a href="/contact" className="hover:text-amber-200 transition duration-200">Contact</a>
         </nav>
       </header>
 
       {/* Hero */}
-      <section className="bg-[url('https://via.placeholder.com/1600x600?text=Tech+Hero')] bg-cover bg-center text-white py-24 px-6 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Performance. Portability. Power.</h2>
-        <p className="text-lg md:text-xl mb-6 drop-shadow-md">Find laptops and bundles designed for developers, creators, students and gamers.</p>
-        <div className="flex items-center justify-center gap-4">
-          <a href="/products" className="bg-green-700 px-6 py-3 rounded text-lg font-medium hover:bg-green-800 transition">Shop Laptops</a>
-          <a href="/bundleoffers" className="bg-white text-green-700 px-6 py-3 rounded text-lg font-medium hover:bg-amber-100 transition">View Bundles</a>
+      <section className="bg-gradient-to-br from-green-900 via-green-800 to-green-600 text-white py-32 px-6 text-center relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-400 rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-3xl mx-auto relative z-10">
+          <div className="inline-block mb-4 px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-semibold">Premium Laptops & Bundles</div>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg leading-tight">Performance. Portability. Power.</h2>
+          <p className="text-lg md:text-xl mb-8 drop-shadow-md text-gray-100">Find the perfect laptop for developers, creators, students, and gamers.</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/products" className="bg-white text-green-700 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-amber-100 transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">Shop Laptops</a>
+            <a href="/bundleoffers" className="bg-green-700 border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-green-800 transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">View Bundles</a>
+          </div>
         </div>
       </section>
 
