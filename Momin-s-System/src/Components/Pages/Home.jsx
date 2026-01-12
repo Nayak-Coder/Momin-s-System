@@ -149,24 +149,27 @@ const HomePage = () => {
       ) : (
         <>
           {/* Featured Products with Tabs */}
-          <section className="py-12 px-4 max-w-7xl mx-auto">
-            <h3 className="text-3xl md:text-4xl font-bold text-center mb-6">Featured Laptops</h3>
+          <section className="py-16 px-4 max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h3 className="text-4xl md:text-5xl font-bold mb-3">Featured Laptops</h3>
+              <p className="text-gray-600 text-lg">Curated selection of top-performing devices</p>
+            </div>
 
             {/* Tabs */}
-            <div className="flex items-center justify-center mb-8">
+            <div className="flex items-center justify-center mb-12">
               <div className="w-full md:w-2/3">
                 <div className="relative">
-                  <div className="flex gap-6 justify-start md:justify-center border-b pb-2">
+                  <div className="flex gap-6 justify-start md:justify-center border-b-2 border-gray-200 pb-2">
                     {tabs.map((tab, idx) => {
                       const count = laptops.filter((l) => (tab === 'New Arrivals' ? l.category === 'new' : tab === 'On Sale' ? l.category === 'sale' : l.category === 'gaming')).length;
                       return (
                         <button
                           key={tab}
                           onClick={() => setSelectedTab(tab)}
-                          className={`pb-3 text-sm md:text-base font-semibold flex items-center gap-2 ${selectedTab === tab ? 'text-green-700' : 'text-gray-600 hover:text-gray-800'}`}
+                          className={`pb-4 px-4 text-sm md:text-base font-semibold flex items-center gap-2 transition duration-300 relative ${selectedTab === tab ? 'text-green-700' : 'text-gray-600 hover:text-gray-800'}`}
                         >
                           <span>{tab}</span>
-                          <span className="text-xs text-gray-400">({count})</span>
+                          <span className={`text-xs font-bold px-2 py-1 rounded-full ${selectedTab === tab ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>({count})</span>
                         </button>
                       );
                     })}
@@ -175,7 +178,7 @@ const HomePage = () => {
                   {/* animated underline */}
                   <div className="absolute left-0 right-0 top-full">
                     <div
-                      className="mx-auto bg-green-700 h-0.5 rounded transition-all duration-300"
+                      className="mx-auto bg-green-700 h-1 rounded transition-all duration-300"
                       style={{
                         width: `${100 / tabs.length}%`,
                         transform: `translateX(${tabs.indexOf(selectedTab) * 100}%)`,
@@ -196,22 +199,31 @@ const HomePage = () => {
                   return true;
                 })
                 .map((laptop) => (
-                  <article key={laptop.id} className="bg-white border rounded-xl shadow-sm hover:shadow-md transition overflow-hidden">
-                    <div className="p-4">
-                      <div className="text-xs text-gray-500 uppercase mb-2">{laptop.categoryLabel}</div>
-                      <h4 className="text-lg md:text-xl font-semibold mb-2">{laptop.name}</h4>
+                  <article key={laptop.id} className="bg-white border border-gray-100 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
+                    <div className="relative">
+                      <img src={laptop.image} alt={laptop.name} className="w-full h-48 object-contain bg-gray-50 p-6" />
+                      <div className="absolute top-3 right-3 bg-green-700 text-white text-xs font-bold px-3 py-1 rounded-full">{laptop.badge}</div>
                     </div>
-                    <img src={laptop.image} alt={laptop.name} className="w-full h-48 object-contain bg-white p-6" />
-                    <div className="p-5 text-center">
-                      <div className="flex items-center justify-center gap-2 mb-3">
+                    <div className="p-5">
+                      <div className="text-xs text-green-600 uppercase font-semibold tracking-wider mb-2">{laptop.categoryLabel}</div>
+                      <h4 className="text-lg font-semibold mb-3 text-gray-800 line-clamp-2">{laptop.name}</h4>
+                      
+                      <div className="flex items-center gap-3 mb-4">
                         <span className="text-2xl font-bold text-green-700">Rs {laptop.price.toLocaleString()}</span>
                         {laptop.oldPrice && (
                           <span className="text-sm text-gray-400 line-through">Rs {laptop.oldPrice.toLocaleString()}</span>
                         )}
                       </div>
-                      <div className="flex justify-center gap-3">
-                        <a href={`/products/${laptop.id}`} className="text-green-700 font-semibold">View</a>
-                        <button onClick={() => addItem({ id: laptop.id, name: laptop.name, price: laptop.price, image: laptop.image }, 1)} className="bg-gray-100 px-4 py-2 rounded hover:bg-gray-200">Add to Cart</button>
+
+                      {laptop.oldPrice && (
+                        <div className="mb-4 inline-block bg-red-100 text-red-700 text-xs font-semibold px-2 py-1 rounded">
+                          Save Rs {(laptop.oldPrice - laptop.price).toLocaleString()}
+                        </div>
+                      )}
+
+                      <div className="flex justify-center gap-3 pt-3 border-t border-gray-100">
+                        <a href={`/products/${laptop.id}`} className="flex-1 text-center text-green-700 font-semibold hover:bg-green-50 py-2 rounded transition duration-200">View Details</a>
+                        <button onClick={() => addItem({ id: laptop.id, name: laptop.name, price: laptop.price, image: laptop.image }, 1)} className="flex-1 bg-green-700 text-white font-semibold py-2 rounded hover:bg-green-800 transition duration-200">Add to Cart</button>
                       </div>
                     </div>
                   </article>
@@ -220,22 +232,33 @@ const HomePage = () => {
           </section>
 
           {/* Bundles Preview */}
-          <section className="bg-gray-50 py-12 px-4">
+          <section className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4">
             <div className="max-w-7xl mx-auto">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-3xl font-bold">Bundle Offers</h3>
-                <a href="/bundleoffers" className="text-green-700 hover:underline">See all bundles</a>
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12">
+                <div>
+                  <h3 className="text-4xl font-bold mb-2">Bundle Offers</h3>
+                  <p className="text-gray-600">Save more with our curated bundle packages</p>
+                </div>
+                <a href="/bundleoffers" className="mt-4 md:mt-0 text-green-700 hover:text-green-800 font-semibold flex items-center gap-2 transition">See all bundles →</a>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {bundles.map((b) => (
-                  <div key={b.id} className="bg-white rounded-lg shadow-sm overflow-hidden flex">
-                    <img src={b.image} alt={b.name} className="w-1/3 object-cover hidden sm:block" />
-                    <div className="p-5 flex-1">
-                      <h4 className="text-xl font-semibold mb-2">{b.name}</h4>
-                      <p className="text-gray-600 mb-4">Starting at <span className="font-bold text-green-700">${b.discountedPrice.toLocaleString()}</span></p>
-                      <div className="flex gap-3">
-                        <a href={`/bundleoffers/${b.id}`} className="bg-green-700 text-white px-4 py-2 rounded">View Bundle</a>
-                        <button onClick={() => addItem({ id: `bundle-${b.id}`, name: b.name, price: b.discountedPrice, image: b.image }, 1)} className="bg-gray-100 px-4 py-2 rounded">Add Bundle</button>
+                  <div key={b.id} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col sm:flex-row transform hover:scale-105">
+                    <div className="sm:w-1/3 overflow-hidden">
+                      <img src={b.image} alt={b.name} className="w-full h-full object-cover" />
+                    </div>
+                    <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                      <div>
+                        <div className="inline-block bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Bundle Deal</div>
+                        <h4 className="text-2xl font-bold mb-2 text-gray-800">{b.name}</h4>
+                        <p className="text-gray-600 mb-4">Everything you need in one package at an unbeatable price.</p>
+                      </div>
+                      <div>
+                        <p className="text-xl font-bold mb-4">Starting at <span className="text-green-700 text-2xl">${b.discountedPrice.toLocaleString()}</span></p>
+                        <div className="flex gap-3">
+                          <a href={`/bundleoffers/${b.id}`} className="flex-1 bg-green-700 text-white text-center px-4 py-3 rounded-lg font-semibold hover:bg-green-800 transition duration-200">View Bundle</a>
+                          <button onClick={() => addItem({ id: `bundle-${b.id}`, name: b.name, price: b.discountedPrice, image: b.image }, 1)} className="flex-1 bg-gray-100 text-gray-800 px-4 py-3 rounded-lg font-semibold hover:bg-gray-200 transition duration-200">Add to Cart</button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -245,43 +268,46 @@ const HomePage = () => {
           </section>
 
           {/* Testimonials Preview */}
-          <section className="py-12 px-4 max-w-7xl mx-auto">
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <h3 className="text-3xl md:text-4xl font-bold">What Our Customers Say</h3>
-                <p className="text-gray-600 mt-2">Real reviews from our satisfied customers</p>
+          <section className="py-16 px-4 max-w-7xl mx-auto">
+            <div className="mb-12">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
+                <div>
+                  <h3 className="text-4xl font-bold mb-3">What Our Customers Say</h3>
+                  <p className="text-gray-600 text-lg">Real reviews from satisfied customers worldwide</p>
+                </div>
+                <a href="/user-testimonials" className="mt-4 md:mt-0 text-green-700 hover:text-green-800 font-semibold flex items-center gap-2 transition">View all testimonials →</a>
               </div>
-              <a href="/user-testimonials" className="text-green-700 hover:underline font-semibold">Read all →</a>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {testimonials.map((t) => (
-                <div key={t.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 flex flex-col">
+                <div key={t.id} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 flex flex-col h-full transform hover:-translate-y-2 border border-gray-100">
                   {/* Star Rating */}
                   <div className="flex items-center mb-4">
                     {[...Array(5)].map((_, i) => (
-                      <svg key={i} className={`h-4 w-4 ${i < t.rating ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
+                      <svg key={i} className={`h-5 w-5 ${i < t.rating ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     ))}
+                    <span className="ml-2 text-sm font-semibold text-gray-600">{t.rating}.0</span>
                   </div>
 
-                  <p className="italic text-gray-700 flex-grow">"{t.text}"</p>
+                  <p className="italic text-gray-700 flex-grow text-base leading-relaxed">"{t.text}"</p>
 
                   {/* Divider */}
-                  <div className="border-t my-4" />
+                  <div className="border-t my-5" />
 
                   {/* Customer Info */}
-                  <div className="flex items-center gap-3">
-                    <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full object-cover" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <img src={t.image} alt={t.name} className="w-14 h-14 rounded-full object-cover border-2 border-green-200" />
                     <div className="flex-1">
-                      <p className="font-semibold text-gray-800 text-sm">{t.name}</p>
-                      <p className="text-xs text-gray-500">{t.role}</p>
+                      <p className="font-bold text-gray-800">{t.name}</p>
+                      <p className="text-sm text-gray-500">{t.role}</p>
                     </div>
                   </div>
 
                   {/* Product Tag */}
-                  <div className="mt-4">
-                    <span className="inline-block bg-amber-50 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
+                  <div>
+                    <span className="inline-block bg-green-50 text-green-700 text-xs font-bold px-3 py-1 rounded-full border border-green-200">
                       {t.product}
                     </span>
                   </div>
@@ -296,14 +322,23 @@ const HomePage = () => {
       <ChatWidget />
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-green-900 via-green-700 to-amber-200 text-white py-10 text-center mt-8">
-        <div className="mb-4">
-          <p className="text-sm">&copy; {new Date().getFullYear()} TechLaptop Store. All rights reserved.</p>
-        </div>
-        <div className="flex justify-center space-x-6 mt-4">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">Facebook</a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">Twitter</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">Instagram</a>
+      <footer className="bg-gradient-to-r from-green-900 via-green-700 to-amber-200 text-white py-12 text-center mt-12 border-t-4 border-green-600">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-8">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="text-3xl">💻</span>
+              <h3 className="text-2xl font-bold">TechLaptop Store</h3>
+            </div>
+            <p className="text-gray-100 text-sm">&copy; {new Date().getFullYear()} TechLaptop Store. All rights reserved.</p>
+          </div>
+          <div className="border-t border-green-600 pt-6">
+            <div className="flex justify-center space-x-8 mb-6">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-amber-200 transition duration-200 font-medium">Facebook</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-amber-200 transition duration-200 font-medium">Twitter</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-amber-200 transition duration-200 font-medium">Instagram</a>
+            </div>
+            <p className="text-xs text-gray-200">Built with ❤️ for tech enthusiasts</p>
+          </div>
         </div>
       </footer>
     </div>
