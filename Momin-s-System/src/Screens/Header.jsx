@@ -1,9 +1,12 @@
 import React from 'react';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart, FaMoon, FaSun, FaHeart } from 'react-icons/fa';
 import { useCart } from '../Context/CartContext';
+import { useWishlist } from '../Context/WishlistContext';
+import { useTheme } from '../Context/ThemeContext';
 import logo from '../assets/logo.jpg';
 
 const Header = () => {
+  const { isDarkMode, toggleDarkMode } = useTheme();
   return (
     <header className="bg-gradient-to-r from-green-900 via-green-700 to-amber-200 shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
@@ -20,6 +23,17 @@ const Header = () => {
           <a href="/contact" className="text-white hover:text-amber-200 transition">Contact</a>
         </nav>
         <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={toggleDarkMode}
+            className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition text-white"
+            title="Toggle dark mode"
+          >
+            {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
+          </button>
+          <a href="/wishlist" className="relative inline-flex items-center text-white/90 hover:text-white" title="Wishlist">
+            <FaHeart size={20} />
+            <WishlistCount />
+          </a>
           <a href="/login" className="bg-white text-green-700 px-6 py-2 rounded-full font-bold shadow hover:bg-amber-100 transition">Log in</a>
           {/* Cart icon with count */}
           <CartStatus />
@@ -57,6 +71,19 @@ const CartStatus = () => {
         <FaShoppingCart className="text-green-50" />
       </a>
     );
+  }
+};
+
+const WishlistCount = () => {
+  try {
+    const { wishlist } = useWishlist();
+    return wishlist.length > 0 ? (
+      <span className="absolute -right-2 -top-2 inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
+        {wishlist.length}
+      </span>
+    ) : null;
+  } catch (e) {
+    return null;
   }
 };
 

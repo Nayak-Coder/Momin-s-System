@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { CartProvider } from './Context/CartContext';
+import { WishlistProvider } from './Context/WishlistContext';
+import { ThemeProvider } from './Context/ThemeContext';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './Components/Pages/Home.jsx'
 import AboutUs from './Components/Pages/AboutUs.jsx'
@@ -11,6 +13,7 @@ import Products from './Components/Pages/Products.jsx'
 import Contact from './Components/Pages/Contact.jsx'
 import Loginpage from './Components/Pages/Login.jsx'
 import Cart from './Components/Pages/Cart.jsx'
+import Wishlist from './Components/Pages/Wishlist.jsx'
 import MarketPlace from './Components/Pages/MarketPlace.jsx'
 import Tech from './Components/Pages/Tech.jsx'
 import BundleOffers from './Components/Pages/BundleOffers.jsx'
@@ -51,6 +54,10 @@ const router = createBrowserRouter([
         element: <Cart />
       },
       {
+        path: "wishlist",
+        element: <Wishlist />
+      },
+      {
         path: "marketplace",
         element: <MarketPlace />
       },
@@ -74,8 +81,12 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <CartProvider>
-      <RouterProvider router={router} />
-    </CartProvider>
+    <ThemeProvider>
+      <CartProvider>
+        <WishlistProvider>
+          <RouterProvider router={router} />
+        </WishlistProvider>
+      </CartProvider>
+    </ThemeProvider>
   </StrictMode>,
 )
