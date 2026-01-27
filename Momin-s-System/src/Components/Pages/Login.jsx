@@ -44,22 +44,22 @@ const Loginpage = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-900 via-green-800 to-amber-600 py-12 px-4 sm:px-6 lg:px-8">
             {/* Background decorative elements */}
-            <div className="absolute top-0 -left-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-            <div className="absolute top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div className="absolute top-0 -left-40 w-80 h-80 bg-green-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div className="absolute top-40 -right-40 w-80 h-80 bg-amber-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
             
             <div className="w-full max-w-md relative">
                 {/* Card Container */}
                 <div className="bg-white rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl bg-opacity-95">
                     {/* Gradient Top Bar */}
-                    <div className="h-2 bg-gradient-to-r from-green-400 to-blue-500"></div>
+                    <div className="h-2 bg-gradient-to-r from-green-700 to-amber-500"></div>
                     
                     {/* Content */}
                     <div className="p-8 sm:p-10">
                         {/* Header */}
                         <div className="text-center mb-8">
-                            <h1 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2">
+                            <h1 className="text-4xl font-bold bg-gradient-to-r from-green-700 to-amber-600 bg-clip-text text-transparent mb-2">
                                 Welcome Back
                             </h1>
                             <p className="text-gray-600 text-sm">Sign in to your account to continue</p>
@@ -78,7 +78,7 @@ const Loginpage = () => {
                                         type="email"
                                         placeholder="you@example.com"
                                         className={`w-full px-4 py-3 pl-11 border-2 rounded-lg focus:outline-none transition-all duration-300 ${
-                                            error && !email ? "border-red-500 bg-red-50" : "border-gray-300 focus:border-green-500 focus:bg-green-50"
+                                            error && !email ? "border-red-500 bg-red-50" : "border-gray-300 focus:border-green-700 focus:bg-green-50"
                                         }`}
                                         value={email}
                                         onChange={(e) => {
@@ -103,7 +103,7 @@ const Loginpage = () => {
                                         type={showPassword ? "text" : "password"}
                                         placeholder="Enter your password"
                                         className={`w-full px-4 py-3 pl-11 pr-11 border-2 rounded-lg focus:outline-none transition-all duration-300 ${
-                                            error && !password ? "border-red-500 bg-red-50" : "border-gray-300 focus:border-green-500 focus:bg-green-50"
+                                            error && !password ? "border-red-500 bg-red-50" : "border-gray-300 focus:border-green-700 focus:bg-green-50"
                                         }`}
                                         value={password}
                                         onChange={(e) => {
@@ -152,11 +152,11 @@ const Loginpage = () => {
                                         type="checkbox"
                                         checked={rememberMe}
                                         onChange={(e) => setRememberMe(e.target.checked)}
-                                        className="w-4 h-4 text-green-600 rounded focus:ring-2 focus:ring-green-500 cursor-pointer"
+                                        className="w-4 h-4 text-green-700 rounded focus:ring-2 focus:ring-green-700 cursor-pointer"
                                     />
                                     <span className="ml-2 text-gray-700">Remember me</span>
                                 </label>
-                                <Link to="#" className="text-green-600 hover:text-green-700 font-semibold transition-colors">
+                                <Link to="#" className="text-green-700 hover:text-amber-600 font-semibold transition-colors">
                                     Forgot password?
                                 </Link>
                             </div>
@@ -165,7 +165,7 @@ const Loginpage = () => {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="w-full bg-gradient-to-r from-green-600 to-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:from-green-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
+                                className="w-full bg-gradient-to-r from-green-700 to-amber-500 text-white font-bold py-3 px-4 rounded-lg hover:from-green-800 hover:to-amber-600 transition-all duration-300 transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
                             >
                                 {isLoading ? (
                                     <>
@@ -185,7 +185,7 @@ const Loginpage = () => {
                         <div className="mt-8 text-center border-t border-gray-200 pt-6">
                             <p className="text-gray-600 text-sm">
                                 Don't have an account?{" "}
-                                <Link to="#" className="text-green-600 hover:text-green-700 font-bold transition-colors">
+                                <Link to="#" className="text-green-700 hover:text-amber-600 font-bold transition-colors">
                                     Sign up now
                                 </Link>
                             </p>
