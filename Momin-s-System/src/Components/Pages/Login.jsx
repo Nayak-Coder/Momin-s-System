@@ -1,55 +1,223 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Loginpage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [rememberMe, setRememberMe] = useState(false);
     const [error, setError] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handlelogin = (e) => {
         e.preventDefault();
-        if (!email || !password) {
-            setError("Please Fill Email And Password Correctly");
+        
+        if (!email.trim()) {
+            setError("Please enter your email address");
             return;
         }
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            setError("Please enter a valid email address");
+            return;
+        }
+        
+        if (!password) {
+            setError("Please enter your password");
+            return;
+        }
+        
+        if (password.length < 6) {
+            setError("Password must be at least 6 characters");
+            return;
+        }
+
         setError("");
-        console.log("Login button clicked with", { email, password });
-        window.location.href = '/';
+        setIsLoading(true);
+        
+        // Simulate API call
+        setTimeout(() => {
+            console.log("Login button clicked with", { email, password, rememberMe });
+            window.location.href = '/';
+        }, 1500);
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
-                <h2 className="text-2xl font-bold mb-6 text-center">Login your Account</h2>
-                <form className="space-y-4" onSubmit={handlelogin}>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Email</label>
-                        <input
-                            type="email"
-                            placeholder="Email"
-                            className="w-full px-3 py-2 border border-gray-300 rounded mb-1 focus:outline-none focus:ring-2 focus:ring-green-500"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-12 px-4 sm:px-6 lg:px-8">
+            {/* Background decorative elements */}
+            <div className="absolute top-0 -left-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div className="absolute top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            
+            <div className="w-full max-w-md relative">
+                {/* Card Container */}
+                <div className="bg-white rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl bg-opacity-95">
+                    {/* Gradient Top Bar */}
+                    <div className="h-2 bg-gradient-to-r from-green-400 to-blue-500"></div>
+                    
+                    {/* Content */}
+                    <div className="p-8 sm:p-10">
+                        {/* Header */}
+                        <div className="text-center mb-8">
+                            <h1 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2">
+                                Welcome Back
+                            </h1>
+                            <p className="text-gray-600 text-sm">Sign in to your account to continue</p>
+                        </div>
+
+                        {/* Form */}
+                        <form className="space-y-5" onSubmit={handlelogin}>
+                            {/* Email Input */}
+                            <div className="space-y-2">
+                                <label htmlFor="email" className="block text-sm font-semibold text-gray-800">
+                                    Email Address
+                                </label>
+                                <div className="relative">
+                                    <input
+                                        id="email"
+                                        type="email"
+                                        placeholder="you@example.com"
+                                        className={`w-full px-4 py-3 pl-11 border-2 rounded-lg focus:outline-none transition-all duration-300 ${
+                                            error && !email ? "border-red-500 bg-red-50" : "border-gray-300 focus:border-green-500 focus:bg-green-50"
+                                        }`}
+                                        value={email}
+                                        onChange={(e) => {
+                                            setEmail(e.target.value);
+                                            setError("");
+                                        }}
+                                    />
+                                    <svg className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            {/* Password Input */}
+                            <div className="space-y-2">
+                                <label htmlFor="password" className="block text-sm font-semibold text-gray-800">
+                                    Password
+                                </label>
+                                <div className="relative">
+                                    <input
+                                        id="password"
+                                        type={showPassword ? "text" : "password"}
+                                        placeholder="Enter your password"
+                                        className={`w-full px-4 py-3 pl-11 pr-11 border-2 rounded-lg focus:outline-none transition-all duration-300 ${
+                                            error && !password ? "border-red-500 bg-red-50" : "border-gray-300 focus:border-green-500 focus:bg-green-50"
+                                        }`}
+                                        value={password}
+                                        onChange={(e) => {
+                                            setPassword(e.target.value);
+                                            setError("");
+                                        }}
+                                    />
+                                    <svg className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        className="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600"
+                                    >
+                                        {showPassword ? (
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                                                <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                                            </svg>
+                                        ) : (
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fillRule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-14-14zM10 12a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                                            </svg>
+                                        )}
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Error Message */}
+                            {error && (
+                                <div className="bg-red-50 border-l-4 border-red-500 p-3 rounded">
+                                    <p className="text-sm text-red-700 flex items-center">
+                                        <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                        </svg>
+                                        {error}
+                                    </p>
+                                </div>
+                            )}
+
+                            {/* Remember & Forgot */}
+                            <div className="flex items-center justify-between text-sm">
+                                <label className="flex items-center cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={rememberMe}
+                                        onChange={(e) => setRememberMe(e.target.checked)}
+                                        className="w-4 h-4 text-green-600 rounded focus:ring-2 focus:ring-green-500 cursor-pointer"
+                                    />
+                                    <span className="ml-2 text-gray-700">Remember me</span>
+                                </label>
+                                <Link to="#" className="text-green-600 hover:text-green-700 font-semibold transition-colors">
+                                    Forgot password?
+                                </Link>
+                            </div>
+
+                            {/* Login Button */}
+                            <button
+                                type="submit"
+                                disabled={isLoading}
+                                className="w-full bg-gradient-to-r from-green-600 to-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:from-green-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
+                            >
+                                {isLoading ? (
+                                    <>
+                                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                        Signing in...
+                                    </>
+                                ) : (
+                                    "Sign In"
+                                )}
+                            </button>
+                        </form>
+
+                        {/* Sign Up Link */}
+                        <div className="mt-8 text-center border-t border-gray-200 pt-6">
+                            <p className="text-gray-600 text-sm">
+                                Don't have an account?{" "}
+                                <Link to="#" className="text-green-600 hover:text-green-700 font-bold transition-colors">
+                                    Sign up now
+                                </Link>
+                            </p>
+                        </div>
                     </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Password</label>
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            className="w-full px-3 py-2 border border-gray-300 rounded mb-1 focus:outline-none focus:ring-2 focus:ring-green-500"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                    {error && <p className="text-red-500 text-sm">{error}</p>}
-                    <button
-                        type="submit"
-                        className="w-full bg-green-700 text-white py-2 px-4 rounded hover:bg-green-800 transition"
-                    >
-                        Login
-                    </button>
-                </form>
+                </div>
+
+                {/* Footer Text */}
+                <div className="text-center mt-6">
+                    <p className="text-gray-400 text-xs">By signing in, you agree to our Terms of Service and Privacy Policy</p>
+                </div>
             </div>
+
+            <style jsx>{`
+                @keyframes blob {
+                    0%, 100% {
+                        transform: translate(0, 0) scale(1);
+                    }
+                    33% {
+                        transform: translate(30px, -50px) scale(1.1);
+                    }
+                    66% {
+                        transform: translate(-20px, 20px) scale(0.9);
+                    }
+                }
+                .animate-blob {
+                    animation: blob 7s infinite;
+                }
+                .animation-delay-2000 {
+                    animation-delay: 2s;
+                }
+            `}</style>
         </div>
     );
 };
