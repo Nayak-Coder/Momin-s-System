@@ -5,6 +5,7 @@ import App from './App.jsx'
 import { CartProvider } from './Context/CartContext';
 import { WishlistProvider } from './Context/WishlistContext';
 import { ThemeProvider } from './Context/ThemeContext';
+import { AuthProvider } from './Context/AuthContext';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './Components/Pages/Home.jsx'
 import AboutUs from './Components/Pages/AboutUs.jsx'
@@ -81,12 +82,14 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ThemeProvider>
-      <CartProvider>
-        <WishlistProvider>
-          <RouterProvider router={router} />
-        </WishlistProvider>
-      </CartProvider>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <CartProvider>
+          <WishlistProvider>
+            <RouterProvider router={router} />
+          </WishlistProvider>
+        </CartProvider>
+      </ThemeProvider>
+    </AuthProvider>
   </StrictMode>,
 )
