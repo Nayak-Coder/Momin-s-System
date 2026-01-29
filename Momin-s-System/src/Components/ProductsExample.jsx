@@ -8,6 +8,9 @@ export default function ProductsExample() {
   const [error, setError] = useState(null);
   const { addItem } = useCart();
 
+  useEffect(() => {
+    fetchProducts();
+  }, []);
     setLoading(true);
     setError(null);
     try {
