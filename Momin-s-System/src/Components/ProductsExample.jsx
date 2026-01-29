@@ -11,6 +11,8 @@ export default function ProductsExample() {
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  const fetchProducts = async () => {
     setLoading(true);
     setError(null);
     try {
