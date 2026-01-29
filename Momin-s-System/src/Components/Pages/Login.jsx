@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
 
 const Loginpage = () => {
+    const navigate = useNavigate();
+    const { login, loading: authLoading } = useAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
     const [rememberMe, setRememberMe] = useState(false);
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [isRegister, setIsRegister] = useState(false);
 
-    const handlelogin = (e) => {
+    const handlelogin = async (e) => {
         e.preventDefault();
         
         if (!email.trim()) {
@@ -36,11 +41,15 @@ const Loginpage = () => {
         setError("");
         setIsLoading(true);
         
-        // Simulate API call
-        setTimeout(() => {
-            console.log("Login button clicked with", { email, password, rememberMe });
-            window.location.href = '/';
-        }, 1500);
+        try {
+            await login(email, password);
+            console.log("Login successful");
+            navigate('/');
+        } catch (err) {
+            setError(err.message || "Login failed. Please try again.");
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -60,13 +69,42 @@ const Loginpage = () => {
                         {/* Header */}
                         <div className="text-center mb-8">
                             <h1 className="text-4xl font-bold bg-gradient-to-r from-green-700 to-amber-600 bg-clip-text text-transparent mb-2">
-                                Welcome Back
+                                {isRegister ? "Create Account" : "Welcome Back"}
                             </h1>
-                            <p className="text-gray-600 text-sm">Sign in to your account to continue</p>
+                            <p className="text-gray-600 text-sm">
+                                {isRegister ? "Sign up to get started" : "Sign in to your account to continue"}
+                            </p>
                         </div>
 
                         {/* Form */}
                         <form className="space-y-5" onSubmit={handlelogin}>
+                            {/* Name Input (Register Only) */}
+                            {isRegister && (
+                                <div className="space-y-2">
+                                    <label htmlFor="name" className="block text-sm font-semibold text-gray-800">
+                                        Full Name
+                                    </label>
+                                    <div className="relative">
+                                        <input
+                                            id="name"
+                                            type="text"
+                                            placeholder="John Doe"
+                                            className={`w-full px-4 py-3 pl-11 border-2 rounded-lg focus:outline-none transition-all duration-300 ${
+                                                error && !name ? "border-red-500 bg-red-50" : "border-gray-300 focus:border-green-700 focus:bg-green-50"
+                                            }`}
+                                            value={name}
+                                            onChange={(e) => {
+                                                setName(e.target.value);
+                                                setError("");
+                                            }}
+                                        />
+                                        <svg className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            )}
+                            
                             {/* Email Input */}
                             <div className="space-y-2">
                                 <label htmlFor="email" className="block text-sm font-semibold text-gray-800">
@@ -146,48 +184,60 @@ const Loginpage = () => {
                             )}
 
                             {/* Remember & Forgot */}
-                            <div className="flex items-center justify-between text-sm">
-                                <label className="flex items-center cursor-pointer">
-                                    <input
-                                        type="checkbox"
-                                        checked={rememberMe}
-                                        onChange={(e) => setRememberMe(e.target.checked)}
-                                        className="w-4 h-4 text-green-700 rounded focus:ring-2 focus:ring-green-700 cursor-pointer"
-                                    />
-                                    <span className="ml-2 text-gray-700">Remember me</span>
-                                </label>
-                                <Link to="#" className="text-green-700 hover:text-amber-600 font-semibold transition-colors">
-                                    Forgot password?
-                                </Link>
-                            </div>
+                            {!isRegister && (
+                                <div className="flex items-center justify-between text-sm">
+                                    <label className="flex items-center cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={rememberMe}
+                                            onChange={(e) => setRememberMe(e.target.checked)}
+                                            className="w-4 h-4 text-green-700 rounded focus:ring-2 focus:ring-green-700 cursor-pointer"
+                                        />
+                                        <span className="ml-2 text-gray-700">Remember me</span>
+                                    </label>
+                                    <Link to="#" className="text-green-700 hover:text-amber-600 font-semibold transition-colors">
+                                        Forgot password?
+                                    </Link>
+                                </div>
+                            )}
 
-                            {/* Login Button */}
+                            {/* Submit Button */}
                             <button
                                 type="submit"
-                                disabled={isLoading}
+                                disabled={isLoading || authLoading}
                                 className="w-full bg-gradient-to-r from-green-700 to-amber-500 text-white font-bold py-3 px-4 rounded-lg hover:from-green-800 hover:to-amber-600 transition-all duration-300 transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
                             >
-                                {isLoading ? (
+                                {isLoading || authLoading ? (
                                     <>
                                         <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                         </svg>
-                                        Signing in...
+                                        {isRegister ? "Creating account..." : "Signing in..."}
                                     </>
                                 ) : (
-                                    "Sign In"
+                                    isRegister ? "Create Account" : "Sign In"
                                 )}
                             </button>
                         </form>
 
-                        {/* Sign Up Link */}
+                        {/* Toggle Register/Login */}
                         <div className="mt-8 text-center border-t border-gray-200 pt-6">
                             <p className="text-gray-600 text-sm">
-                                Don't have an account?{" "}
-                                <Link to="#" className="text-green-700 hover:text-amber-600 font-bold transition-colors">
-                                    Sign up now
-                                </Link>
+                                {isRegister ? "Already have an account? " : "Don't have an account? "}
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setIsRegister(!isRegister);
+                                        setError("");
+                                        setEmail("");
+                                        setPassword("");
+                                        setName("");
+                                    }}
+                                    className="text-green-700 hover:text-amber-600 font-bold transition-colors cursor-pointer"
+                                >
+                                    {isRegister ? "Sign in now" : "Sign up now"}
+                                </button>
                             </p>
                         </div>
                     </div>
