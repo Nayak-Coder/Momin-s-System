@@ -1,7 +1,27 @@
 # Frontend-Backend Connection Setup
+
+Your React frontend is now connected to the Node.js backend! Here's what was set up:
+
 ## Files Created/Updated
 
 ### 1. **API Service** (`src/services/api.js`)
+Central API client for all backend communication with methods for:
+- Users (register, login, getProfile)
+- Products (getAll, getById, create, update, delete)
+- Cart (getCart, addToCart, removeFromCart)
+- Orders (getUserOrders, getOrderById, createOrder)
+
+### 2. **Auth Context** (`src/Context/AuthContext.jsx`)
+Manages user authentication with:
+- `register()` - Create new user account
+- `login()` - Authenticate user
+- `logout()` - Clear session
+- `user` - Current user data
+- `isAuthenticated` - Boolean check
+
+### 3. **Updated Main** (`src/main.jsx`)
+Added `AuthProvider` wrapper around your app
+
 ### 4. **Example Components**
 - `src/Components/LoginExample.jsx` - Complete login/register form
 - `src/Components/ProductsExample.jsx` - Display products from backend
