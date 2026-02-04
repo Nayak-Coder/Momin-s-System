@@ -19,6 +19,16 @@ function MyComponent() {
 }
 ```
 
+### In Any Component - Use Products
+```jsx
+import { productAPI } from '../services/api';
+
+async function loadProducts() {
+  const data = await productAPI.getAll();
+  console.log(data.products);
+}
+```
+
 ### In Any Component - Use Cart
 ```jsx
 import { useCart } from '../Context/CartContext';
@@ -29,6 +39,16 @@ function MyComponent() {
   // Use cart methods
 }
 ```
+
+## Current Flow
+
+1. **Frontend** (React on http://localhost:5173)
+   ↓
+2. **API Service** (routes to http://localhost:5000/api/*)
+   ↓
+3. **Backend** (Express server)
+   ↓
+4. **MongoDB** (stores data)
 
 ## Testing the Connection
 
@@ -76,6 +96,25 @@ const newProduct = await productAPI.create({
 });
 ```
 
+**Create Order:**
+```javascript
+import { orderAPI } from './services/api';
+
+const order = await orderAPI.createOrder({
+  user: 'userId',
+  items: [
+    {
+      product: 'productId',
+      quantity: 2,
+      price: 100
+    }
+  ],
+  totalAmount: 200,
+  shippingAddress: '123 Main St',
+  paymentMethod: 'card'
+});
+```
+
 ## Environment Variables
 
 Frontend doesn't need .env setup (hardcoded to http://localhost:5000)
@@ -86,4 +125,27 @@ MONGO_URI=your_mongodb_connection_string
 PORT=5000
 JWT_SECRET=your_secret_key
 ```
+
+## Next Steps
+
+1. Replace example login page with your Login.jsx
+2. Replace example products with your Products.jsx
+3. Update Cart.jsx to use cartAPI
+4. Update any other pages to use the API services
+5. Test all features thoroughly
+
+## Common Issues
+
+**CORS Error?**
+- Make sure backend is running on port 5000
+- CORS is already configured in backend/server.js
+
+**Can't connect to MongoDB?**
+- Add your IP to MongoDB Atlas whitelist
+- Check connection string in .env file
+
+**API calls return undefined?**
+- Make sure backend server is running
+- Check console for error messages
+- Verify endpoints match in api.js
 
