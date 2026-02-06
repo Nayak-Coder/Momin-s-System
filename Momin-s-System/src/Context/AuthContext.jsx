@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { userAPI } from '../services/api.js';
 
 const AuthContext = createContext(null);
 
@@ -26,13 +25,9 @@ export function AuthProvider({ children }) {
     setLoading(true);
     setError(null);
     try {
-      const data = await userAPI.register({ name, email, password });
-      if (data.token) {
-        localStorage.setItem('authToken', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
-        setUser(data.user);
-      }
-      return data;
+      // API call removed - register logic disabled
+      setError('API calls have been removed from the frontend');
+      throw new Error('API calls have been removed from the frontend');
     } catch (err) {
       setError(err.message);
       throw err;
@@ -45,13 +40,9 @@ export function AuthProvider({ children }) {
     setLoading(true);
     setError(null);
     try {
-      const data = await userAPI.login(email, password);
-      if (data.token) {
-        localStorage.setItem('authToken', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
-        setUser(data.user);
-      }
-      return data;
+      // API call removed - login logic disabled
+      setError('API calls have been removed from the frontend');
+      throw new Error('API calls have been removed from the frontend');
     } catch (err) {
       setError(err.message);
       throw err;
