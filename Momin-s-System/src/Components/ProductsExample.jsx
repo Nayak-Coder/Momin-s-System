@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { productAPI } from '../services/api';
 import { useCart } from '../Context/CartContext';
 
 export default function ProductsExample() {
@@ -16,8 +15,9 @@ export default function ProductsExample() {
     setLoading(true);
     setError(null);
     try {
-      const data = await productAPI.getAll();
-      setProducts(data.products || []);
+      // API call removed - product fetching disabled
+      setError('API calls have been removed from the frontend');
+      setProducts([]);
     } catch (err) {
       setError(err.message);
     } finally {
