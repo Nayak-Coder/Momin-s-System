@@ -2,7 +2,6 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const CartContext = createContext(null);
 
-const STORAGE_KEY = 'techlaptop_cart_v1';
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState(() => {
