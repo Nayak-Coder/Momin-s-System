@@ -92,8 +92,8 @@ git clone https://github.com/yourusername/momin-laptop-store.git
 -   Product filters (brand, RAM, price range)
 -   Remove item from cart
 -   LocalStorage cart persistence
--   Backend integration
--   React/Next.js version
+-   More product variations
+-   Advanced filtering options
 
 ## 🤝 Contributing
 
