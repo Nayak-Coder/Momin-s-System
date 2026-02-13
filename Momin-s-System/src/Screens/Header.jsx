@@ -12,7 +12,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <a href="/" className="flex items-center gap-3">
           <img src={logo} alt="TechLaptop Store Logo" className="h-12 w-12 rounded-full shadow-md border-2 border-white" />
-          <span className="text-2xl font-extrabold text-white tracking-wide drop-shadow-lg">TechLaptop Stor</span>
+          <span className="text-2xl font-extrabold text-white tracking-wide drop-shadow-lg">TechLaptop Store</span>
         </a>
         <nav className="hidden md:flex gap-8 text-lg font-semibold">
           <a href="/" className="text-white hover:text-amber-200 transition">Home</a>

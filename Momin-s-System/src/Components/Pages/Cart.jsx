@@ -63,7 +63,7 @@ const Cart = () => {
                         </div>
                         <div className="flex justify-end mt-6">
                             <button className="bg-green-700 text-white px-8 py-3 rounded hover:bg-green-800 transition text-lg font-medium" disabled={items.length === 0}>
-                                Proceed to Checkouts
+                                Proceed to Checkout
                             </button>
                         </div>
                     </div>
