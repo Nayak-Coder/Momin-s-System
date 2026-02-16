@@ -54,7 +54,7 @@ const Tech = () => {
 				<h3 className="text-3xl font-bold text-center mb-8">Our Commitment</h3>
 				<div className="max-w-4xl mx-auto text-center text-lg text-gray-700">
 					<p>
-						At TechLaptop Store, we are dedicated to pushing the boundaries of technology. Our upcoming AI and Smart Drone projects are designed to deliver smarter, safer, and more efficient solutions for businesses and individuals alike.
+						At TechLaptop Store, we are dedicated to the boundaries of technology. Our upcoming AI and Smart Drone projects are designed to deliver smarter, safer, and more efficient solutions for businesses and individuals alike.
 					</p>
 				</div>
 			</section>
